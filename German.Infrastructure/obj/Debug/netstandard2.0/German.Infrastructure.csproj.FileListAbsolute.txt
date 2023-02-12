@@ -1,0 +1,10 @@
+/Users/tomilolaolaniyi/Projects/German/German.Infrastructure/bin/Debug/netstandard2.0/German.Infrastructure.deps.json
+/Users/tomilolaolaniyi/Projects/German/German.Infrastructure/bin/Debug/netstandard2.0/German.Infrastructure.dll
+/Users/tomilolaolaniyi/Projects/German/German.Infrastructure/bin/Debug/netstandard2.0/German.Infrastructure.pdb
+/Users/tomilolaolaniyi/Projects/German/German.Infrastructure/obj/Debug/netstandard2.0/German.Infrastructure.csproj.AssemblyReference.cache
+/Users/tomilolaolaniyi/Projects/German/German.Infrastructure/obj/Debug/netstandard2.0/German.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tomilolaolaniyi/Projects/German/German.Infrastructure/obj/Debug/netstandard2.0/German.Infrastructure.AssemblyInfoInputs.cache
+/Users/tomilolaolaniyi/Projects/German/German.Infrastructure/obj/Debug/netstandard2.0/German.Infrastructure.AssemblyInfo.cs
+/Users/tomilolaolaniyi/Projects/German/German.Infrastructure/obj/Debug/netstandard2.0/German.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/tomilolaolaniyi/Projects/German/German.Infrastructure/obj/Debug/netstandard2.0/German.Infrastructure.dll
+/Users/tomilolaolaniyi/Projects/German/German.Infrastructure/obj/Debug/netstandard2.0/German.Infrastructure.pdb
