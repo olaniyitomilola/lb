@@ -2,9 +2,11 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using German.Core.Interfaces;
+using German.Core.Entities;
+
 namespace German.Persistence
 {
-	public class AppDbContext: DbContext,IAppDbContext
+	public partial class AppDbContext: DbContext,IAppDbContext
 	{
 		private readonly IConfiguration configuration;
 		public AppDbContext(IConfiguration configuration)
@@ -14,10 +16,13 @@ namespace German.Persistence
 
 		}
 
-		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+     
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder.UseSqlServer(this.configuration.GetConnectionString("database"));
 		}
+
+		
 	}
 }
 
