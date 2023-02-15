@@ -14,7 +14,7 @@ namespace German.Persistence
         public AppDbContext CreateDbContext(string[] args)
         {
 
-            var basePath = Directory.GetCurrentDirectory() + string.Format("{0}..{0}German.Web", Path.DirectorySeparatorChar);
+            var basePath = Directory.GetCurrentDirectory() + string.Format("{0}..{0}German", Path.DirectorySeparatorChar);
             //expected to result change to directorypath/german.web
 
             var configuration = new ConfigurationBuilder()
