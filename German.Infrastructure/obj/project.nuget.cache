@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Q8pGH55IdHJQkh/mAh7gYtsPAogn3QSEqbf+04CVsJxOVJd74m7glUL5yJLXBr1sGXYJX+IjJ/vpH7DQO1AJvQ==",
+  "dgSpecHash": "bMw3TVpGGlWHH9DeZbDD4V1aHOGnk3s+04QKzK42OV7ZEM8VoVaRYU2qnSX9eK2h3mNYTqEm6MJhrgbNsT1dLA==",
   "success": true,
-  "projectFilePath": "/Users/tomilolaolaniyi/Projects/German/German.Infrastructure/German.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\moji\\OneDrive\\Desktop\\C#\\German\\German.Infrastructure\\German.Infrastructure.csproj",
   "expectedPackageFiles": [
-    "/Users/tomilolaolaniyi/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "/Users/tomilolaolaniyi/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\moji\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\moji\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }

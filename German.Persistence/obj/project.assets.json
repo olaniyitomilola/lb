@@ -3766,33 +3766,40 @@
     ]
   },
   "packageFolders": {
-    "/Users/tomilolaolaniyi/.nuget/packages/": {}
+    "C:\\Users\\moji\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/tomilolaolaniyi/Projects/German/German.Persistence/German.Persistence.csproj",
+      "projectUniqueName": "C:\\Users\\moji\\OneDrive\\Desktop\\C#\\German\\German.Persistence\\German.Persistence.csproj",
       "projectName": "German.Persistence",
-      "projectPath": "/Users/tomilolaolaniyi/Projects/German/German.Persistence/German.Persistence.csproj",
-      "packagesPath": "/Users/tomilolaolaniyi/.nuget/packages/",
-      "outputPath": "/Users/tomilolaolaniyi/Projects/German/German.Persistence/obj/",
+      "projectPath": "C:\\Users\\moji\\OneDrive\\Desktop\\C#\\German\\German.Persistence\\German.Persistence.csproj",
+      "packagesPath": "C:\\Users\\moji\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\moji\\OneDrive\\Desktop\\C#\\German\\German.Persistence\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/tomilolaolaniyi/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\moji\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "/usr/local/share/dotnet/library-packs": {},
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "/Users/tomilolaolaniyi/Projects/German/German.Core/German.Core.csproj": {
-              "projectPath": "/Users/tomilolaolaniyi/Projects/German/German.Core/German.Core.csproj"
+            "C:\\Users\\moji\\OneDrive\\Desktop\\C#\\German\\German.Core\\German.Core.csproj": {
+              "projectPath": "C:\\Users\\moji\\OneDrive\\Desktop\\C#\\German\\German.Core\\German.Core.csproj"
             }
           }
         }
@@ -3813,7 +3820,6 @@
           },
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-            "suppressParent": "All",
             "target": "Package",
             "version": "[7.0.2, )"
           },
@@ -3848,7 +3854,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.101/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

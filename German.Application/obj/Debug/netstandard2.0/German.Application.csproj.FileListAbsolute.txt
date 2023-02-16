@@ -8,3 +8,13 @@
 /Users/tomilolaolaniyi/Projects/German/German.Application/obj/Debug/netstandard2.0/German.Application.csproj.CoreCompileInputs.cache
 /Users/tomilolaolaniyi/Projects/German/German.Application/obj/Debug/netstandard2.0/German.Application.dll
 /Users/tomilolaolaniyi/Projects/German/German.Application/obj/Debug/netstandard2.0/German.Application.pdb
+C:\Users\moji\OneDrive\Desktop\C#\German\German.Application\bin\Debug\netstandard2.0\German.Application.deps.json
+C:\Users\moji\OneDrive\Desktop\C#\German\German.Application\bin\Debug\netstandard2.0\German.Application.dll
+C:\Users\moji\OneDrive\Desktop\C#\German\German.Application\bin\Debug\netstandard2.0\German.Application.pdb
+C:\Users\moji\OneDrive\Desktop\C#\German\German.Application\obj\Debug\netstandard2.0\German.Application.csproj.AssemblyReference.cache
+C:\Users\moji\OneDrive\Desktop\C#\German\German.Application\obj\Debug\netstandard2.0\German.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\moji\OneDrive\Desktop\C#\German\German.Application\obj\Debug\netstandard2.0\German.Application.AssemblyInfoInputs.cache
+C:\Users\moji\OneDrive\Desktop\C#\German\German.Application\obj\Debug\netstandard2.0\German.Application.AssemblyInfo.cs
+C:\Users\moji\OneDrive\Desktop\C#\German\German.Application\obj\Debug\netstandard2.0\German.Application.csproj.CoreCompileInputs.cache
+C:\Users\moji\OneDrive\Desktop\C#\German\German.Application\obj\Debug\netstandard2.0\German.Application.dll
+C:\Users\moji\OneDrive\Desktop\C#\German\German.Application\obj\Debug\netstandard2.0\German.Application.pdb
