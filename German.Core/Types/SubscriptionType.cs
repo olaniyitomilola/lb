@@ -4,7 +4,9 @@ using System.Text;
 
 namespace German.Core.Types
 {
-    internal class SubscriptionType
+    public enum SubscriptionType
     {
+        Free = 0,
+        Paid = 1
     }
 }

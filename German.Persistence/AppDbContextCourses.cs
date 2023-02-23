@@ -9,6 +9,7 @@ namespace German.Persistence
 	{
 
         public DbSet<Course> Courses { get; set; }
+        public DbSet<CourseLesson> CourseLessons { get; set; } 
 
 
 
@@ -34,7 +35,11 @@ namespace German.Persistence
 
         public async Task<Course> SelectCourseByIdAsync(int courseId)
         {
-            var course = await this.Courses.AsNoTracking().FirstOrDefaultAsync(course => course.Id == courseId);
+            var course = await this.Courses
+                .AsNoTracking()
+                .Include(c => c.CourseLessons) //the Icollection in the courseObject //if you end up having attackment
+                //as different entity, implement here too
+                .FirstOrDefaultAsync(course => course.Id == courseId);
 
             if (course is null) throw new NullReferenceException($"no course with id {courseId}");
 

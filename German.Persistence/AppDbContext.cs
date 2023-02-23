@@ -21,8 +21,20 @@ namespace German.Persistence
 		{
 			optionsBuilder.UseSqlServer(this.configuration.GetConnectionString("database"));
 		}
+		//soft delete - more research
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+            #region SoftDeletes
+			//wont show the deleted data when not queried
+			//global query filter
+            modelBuilder.Entity<Course>().HasQueryFilter(e => e.IsDeleted == false);
+            modelBuilder.Entity<CourseLesson>().HasQueryFilter(e => e.IsDeleted == false);
+            modelBuilder.Entity<User>().HasQueryFilter(e => e.IsDeleted == false);
+            modelBuilder.Entity<Author>().HasQueryFilter(e => e.IsDeleted == false);
 
-		
-	}
+
+
+        }
+    }
 }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using German.Core.Interfaces;
 namespace German.Core.Entities
 {
@@ -6,6 +7,7 @@ namespace German.Core.Entities
 	{
 		public Course()
 		{
+            this.CourseLessons = new HashSet<CourseLesson>();
 		}
 
         public int Id { get; set; }
@@ -16,6 +18,8 @@ namespace German.Core.Entities
         public string Name { get; set; }
         public string Description { get; set; }
         public string CourseUrl { get; set; }
+
+        public ICollection<CourseLesson> CourseLessons { get;set; }
 
     }
 }

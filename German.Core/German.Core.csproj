@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -11,9 +11,6 @@
     <None Remove="Types\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Entities\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Options\" />
-    <Folder Include="Types\" />
   </ItemGroup>
 </Project>

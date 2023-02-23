@@ -1,17 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 25.0.1704.2
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "German.Web.MVC", "German\German.Web.MVC.csproj", "{A46E1FC4-CAE4-4DE5-93FE-C926BA558943}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "German.Web.MVC", "German\German.Web.MVC.csproj", "{A46E1FC4-CAE4-4DE5-93FE-C926BA558943}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "German.Application", "German.Application\German.Application.csproj", "{14B09227-0BC5-4088-94F6-AB162C6E0865}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "German.Application", "German.Application\German.Application.csproj", "{14B09227-0BC5-4088-94F6-AB162C6E0865}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "German.Core", "German.Core\German.Core.csproj", "{3E54D63C-D91B-4C78-8952-3BEE18114E8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "German.Core", "German.Core\German.Core.csproj", "{3E54D63C-D91B-4C78-8952-3BEE18114E8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "German.Infrastructure", "German.Infrastructure\German.Infrastructure.csproj", "{7D7F50A2-0220-4B80-88F9-EF9AFA028BCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "German.Infrastructure", "German.Infrastructure\German.Infrastructure.csproj", "{7D7F50A2-0220-4B80-88F9-EF9AFA028BCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "German.Persistence", "German.Persistence\German.Persistence.csproj", "{17207619-248B-4251-AD78-064757F928B6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "German.Persistence", "German.Persistence\German.Persistence.csproj", "{17207619-248B-4251-AD78-064757F928B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "German.Test", "German.Test\German.Test.csproj", "{D1B9E249-EBCF-480C-B614-FB268087EA6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{17207619-248B-4251-AD78-064757F928B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17207619-248B-4251-AD78-064757F928B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17207619-248B-4251-AD78-064757F928B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1B9E249-EBCF-480C-B614-FB268087EA6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1B9E249-EBCF-480C-B614-FB268087EA6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1B9E249-EBCF-480C-B614-FB268087EA6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1B9E249-EBCF-480C-B614-FB268087EA6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
