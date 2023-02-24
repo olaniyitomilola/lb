@@ -18,3 +18,13 @@ C:\Users\moji\OneDrive\Desktop\C#\German\German.Core\obj\Debug\netstandard2.0\Ge
 C:\Users\moji\OneDrive\Desktop\C#\German\German.Core\obj\Debug\netstandard2.0\German.Core.csproj.CoreCompileInputs.cache
 C:\Users\moji\OneDrive\Desktop\C#\German\German.Core\obj\Debug\netstandard2.0\German.Core.dll
 C:\Users\moji\OneDrive\Desktop\C#\German\German.Core\obj\Debug\netstandard2.0\German.Core.pdb
+C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Core\bin\Debug\netstandard2.0\German.Core.deps.json
+C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Core\bin\Debug\netstandard2.0\German.Core.dll
+C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Core\bin\Debug\netstandard2.0\German.Core.pdb
+C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Core\obj\Debug\netstandard2.0\German.Core.csproj.AssemblyReference.cache
+C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Core\obj\Debug\netstandard2.0\German.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Core\obj\Debug\netstandard2.0\German.Core.AssemblyInfoInputs.cache
+C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Core\obj\Debug\netstandard2.0\German.Core.AssemblyInfo.cs
+C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Core\obj\Debug\netstandard2.0\German.Core.csproj.CoreCompileInputs.cache
+C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Core\obj\Debug\netstandard2.0\German.Core.dll
+C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Core\obj\Debug\netstandard2.0\German.Core.pdb

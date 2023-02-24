@@ -8,11 +8,11 @@ namespace German.Core.Interfaces
 	public partial interface IAppDbContext
 	{
         //had to remove the public declarations here becauyse all members are public natuyrally and adding it will trigger an error
-		 Task<User> CreateUserAsync(User user);
-         Task<User> SelectUserByIdAsync(int  userId);
-         Task<List<User>> SelectAllUsersAsync();
-         Task<User> UpdateCourseAsync(User user);
-         Task<User> DeleteUserAsync(User user);
+		 Task<Author> CreateAuthorAsync(Author author);
+         Task<Author> SelectAuthorByIdAsync(int  authorId);
+         Task<List<Author>> SelectAllAuthorsAsync();
+         Task<Author> UpdateAuthorAsync(Author author);
+         Task<Author> DeleteAuthorAsync(Author author);
 
 
 

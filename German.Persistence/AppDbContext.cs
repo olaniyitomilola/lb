@@ -29,11 +29,8 @@ namespace German.Persistence
 			//global query filter
             modelBuilder.Entity<Course>().HasQueryFilter(e => e.IsDeleted == false);
             modelBuilder.Entity<CourseLesson>().HasQueryFilter(e => e.IsDeleted == false);
-            modelBuilder.Entity<User>().HasQueryFilter(e => e.IsDeleted == false);
             modelBuilder.Entity<Author>().HasQueryFilter(e => e.IsDeleted == false);
-
-
-
+            #endregion
         }
     }
 }
