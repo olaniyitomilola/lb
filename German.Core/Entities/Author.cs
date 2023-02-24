@@ -6,6 +6,9 @@ namespace German.Core.Entities
 {
     public class Author : IAuditableEntity
     {
+        public Author() { 
+            this.CourseLessons = new HashSet<AuthorCourseLesson>();
+        }
         public int Id { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateUpdated { get; set; }
@@ -26,5 +29,7 @@ namespace German.Core.Entities
 
         public int UserID { get; set; } 
         public User User { get; set; }
+
+        public ICollection<AuthorCourseLesson> CourseLessons { get;set; }
     }
 }
