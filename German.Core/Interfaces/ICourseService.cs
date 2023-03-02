@@ -4,7 +4,7 @@ using System.Text;
 
 namespace German.Core.Interfaces
 {
-    internal interface ICourseService
+    public interface ICourseService
     {
     }
 }

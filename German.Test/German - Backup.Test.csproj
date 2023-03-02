@@ -14,7 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
-  
+    <ProjectReference Include="..\German.Application\German.Application.csproj" />
+    <ProjectReference Include="..\German.Core\German.Core.csproj" />
+	      <ProjectReference Include="..\German.Core\German.Core.csproj" />
+	  ApplicationApplication
   </ItemGroup>
 
 </Project>

@@ -25,6 +25,16 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "German.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/German.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/German.Core.dll": {}
+        }
       }
     }
   },
@@ -172,10 +182,16 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "German.Core/1.0.0": {
+      "type": "project",
+      "path": "../German.Core/German.Core.csproj",
+      "msbuildProject": "../German.Core/German.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "German.Core >= 1.0.0",
       "NETStandard.Library >= 2.0.3"
     ]
   },
@@ -186,11 +202,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\moji\\Source\\Repos\\olaniyitomilola\\german\\German.Application\\German.Application.csproj",
+      "projectUniqueName": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Application\\German.Application.csproj",
       "projectName": "German.Application",
-      "projectPath": "C:\\Users\\moji\\Source\\Repos\\olaniyitomilola\\german\\German.Application\\German.Application.csproj",
+      "projectPath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Application\\German.Application.csproj",
       "packagesPath": "C:\\Users\\moji\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\moji\\Source\\Repos\\olaniyitomilola\\german\\German.Application\\obj\\",
+      "outputPath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -211,7 +227,11 @@
       "frameworks": {
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj": {
+              "projectPath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

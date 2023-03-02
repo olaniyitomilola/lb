@@ -7,7 +7,8 @@
   <ItemGroup>
     <None Remove="Services\" />
   </ItemGroup>
+
   <ItemGroup>
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\German.Core\German.Core.csproj" />
   </ItemGroup>
 </Project>

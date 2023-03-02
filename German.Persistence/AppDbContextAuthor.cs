@@ -24,9 +24,9 @@ namespace German.Persistence
         }
         public async Task<Author> SelectAuthorByIdAsync(int authorId)
         {
-            var author = this.Authors
+            var author = await this.Authors
                         .AsNoTracking() 
-                        .FirstOrDefault(p => p.Id == authorId);
+                        .FirstOrDefaultAsync(p => p.Id == authorId);
             if(author == null) throw new NullReferenceException(nameof(author));
 
             return author;

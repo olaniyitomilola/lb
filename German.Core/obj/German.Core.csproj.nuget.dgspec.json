@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\moji\\Source\\Repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj": {}
+    "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\moji\\Source\\Repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj": {
+    "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\moji\\Source\\Repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj",
+        "projectUniqueName": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj",
         "projectName": "German.Core",
-        "projectPath": "C:\\Users\\moji\\Source\\Repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj",
+        "projectPath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj",
         "packagesPath": "C:\\Users\\moji\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moji\\Source\\Repos\\olaniyitomilola\\german\\German.Core\\obj\\",
+        "outputPath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
