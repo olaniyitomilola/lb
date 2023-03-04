@@ -646,6 +646,9 @@
         }
       },
       "German.Application/1.0.0": {
+        "dependencies": {
+          "German.Core": "1.0.0"
+        },
         "runtime": {
           "German.Application.dll": {}
         }

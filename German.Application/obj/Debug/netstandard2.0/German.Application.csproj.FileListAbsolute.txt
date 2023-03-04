@@ -28,3 +28,6 @@ C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Application\obj\Debug\n
 C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Application\obj\Debug\netstandard2.0\German.Application.csproj.CoreCompileInputs.cache
 C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Application\obj\Debug\netstandard2.0\German.Application.dll
 C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Application\obj\Debug\netstandard2.0\German.Application.pdb
+C:\Users\moji\source\repos\olaniyitomilola\german\German.Application\bin\Debug\netstandard2.0\German.Core.dll
+C:\Users\moji\source\repos\olaniyitomilola\german\German.Application\bin\Debug\netstandard2.0\German.Core.pdb
+C:\Users\moji\source\repos\olaniyitomilola\german\German.Application\obj\Debug\netstandard2.0\German.Application.csproj.CopyComplete
