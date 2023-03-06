@@ -48,8 +48,6 @@ namespace German.Persistence
 				.HasOne(p => p.courseLessons)
 				.WithMany(p => p.Authors)
 				.HasForeignKey(p => p.CourseLessonId);
-
-
             #endregion
         }
     }

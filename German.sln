@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "German.Infrastructure", "Ge
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "German.Persistence", "German.Persistence\German.Persistence.csproj", "{17207619-248B-4251-AD78-064757F928B6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "German.Test", "German.Test\German.Test.csproj", "{D1B9E249-EBCF-480C-B614-FB268087EA6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "German.Test", "German.Test\German.Test.csproj", "{D1B9E249-EBCF-480C-B614-FB268087EA6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

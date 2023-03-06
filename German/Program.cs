@@ -20,8 +20,10 @@ namespace German.Web.MVC
             Host.CreateDefaultBuilder(args)
                 .ConfigureLogging(logging =>
                 {
+                    //logging using microsoft
                     logging.ClearProviders();
                     logging.AddConsole();
+                    logging.AddDebug();
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

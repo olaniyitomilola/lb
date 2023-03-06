@@ -9,6 +9,8 @@ namespace German.Core.Interfaces
     public interface ICourseService
     {
         Task<List<Course>> GetCoursesAsync();
+        Task<Course> GetCourseAsync(int id);
+
 
     }
 }

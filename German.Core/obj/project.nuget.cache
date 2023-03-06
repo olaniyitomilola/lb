@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fOdbLkCQQdVsviA0FBv5WB+MOUOEoFKLbc8IdA30UZDnWaNQpbTihuUEOf/yQf4hLj7D1Q7IsvRaeEFG47oROg==",
+  "dgSpecHash": "srphN9bHJ74lislFQrJkdq5YXmmyO5VPOacflQMn/9yerwhr/Ij0LYM4DR1068dF0n7WiRweqHFmUugzNdyliQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj",
+  "projectFilePath": "C:\\Users\\moji\\Source\\Repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\moji\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\moji\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
