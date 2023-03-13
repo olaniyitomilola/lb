@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "srphN9bHJ74lislFQrJkdq5YXmmyO5VPOacflQMn/9yerwhr/Ij0LYM4DR1068dF0n7WiRweqHFmUugzNdyliQ==",
+  "dgSpecHash": "dNyYgSANJBWBNVUdboq0VUfzx42OKXy62zzKuh4rZrUq0OMcd7lcDTQMZh1yBtHjge08h7z25qYIVeTHgW5z7g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\moji\\Source\\Repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj",
+  "projectFilePath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\moji\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\moji\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\moji\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\moji\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

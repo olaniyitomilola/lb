@@ -23,7 +23,8 @@ namespace German.Persistence
 
         public async Task<Course> DeleteCourseAsync(Course course)
         {
-            EntityEntry<Course> entityEntry = this.Courses.Remove(course);
+            EntityEntry<Course> entityEntry = this.
+                Courses.Remove(course);
             await this.SaveChangesAsync();
             return entityEntry.Entity;
         }
@@ -38,6 +39,7 @@ namespace German.Persistence
             var course = await this.Courses
                 .AsNoTracking()
                 .Include(c => c.CourseLessons) //the Icollection in the courseObject //if you end up having attackment
+                    .ThenInclude(c=> c.Authors)
                 //as different entity, implement here too
                 .FirstOrDefaultAsync(course => course.Id == courseId);
 

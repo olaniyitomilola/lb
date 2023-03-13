@@ -10,6 +10,7 @@ using Moq;
 using Xunit;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
+using AutoMapper;
 
 namespace German.Test.Services
 {
@@ -18,11 +19,13 @@ namespace German.Test.Services
         private Mock<ILogger<CourseService>> logger;
         private  Mock<IAppDbContext> _appDbContextMock;
         private  ICourseService _courseServiceMock;
+        private readonly Mapper mapper;
 
         public CourseServiceTest() {
             this._appDbContextMock= new Mock<IAppDbContext>();
             this.logger = new Mock<ILogger<CourseService>>();
             this._courseServiceMock = new CourseService(this.logger.Object, this._appDbContextMock.Object);
+            this.mapper = new Mapper(new MapperConfiguration(cfg => cfg.CreateMap<Course, Course>()));
         }
         //report, the test didnt run until I added xunit as a package. [Fact] only added
         [Fact]
@@ -71,11 +74,13 @@ namespace German.Test.Services
         public async Task ShouldReturnSingleCourse()
         {
             //given
-            Course databaseCourse = new()
+            Course expectedCourse = new()
             {
                 Id = 1,
                 Name = "Introduction to Remote Sensing"
             };
+            //clone course
+            Course databaseCourse = this.mapper.Map<Course>(expectedCourse);
 
             this._appDbContextMock.Setup(db => 
                 db.SelectCourseByIdAsync(databaseCourse.Id))
@@ -88,11 +93,40 @@ namespace German.Test.Services
             // Db hit once
             //logger was not hit
 
-            actualCourse.Should().BeEquivalentTo(databaseCourse);
+            actualCourse.Should().BeEquivalentTo(expectedCourse);
             _appDbContextMock.Verify(db => db.SelectCourseByIdAsync(databaseCourse.Id), Times.Once);
             _appDbContextMock.VerifyNoOtherCalls();
             logger.VerifyNoOtherCalls();
+            //I found out that the order of the code matters too, wasted about an hour trying to debug
+            //I initslly put the verifyNoother calls before the hit once.
 
+        }
+
+        [Fact]
+
+        public async Task ShouldThrowApplicationExceptionErrorIfInvalidId()
+        {
+            //given
+         
+            int invalidId = 100;
+            Course invalidCourse = null;
+            //clone course
+
+            this._appDbContextMock.Setup(db =>
+                db.SelectCourseByIdAsync(invalidId))
+                    .ReturnsAsync(invalidCourse);
+            //when
+            var actualCourse =  _courseServiceMock.GetCourseAsync(invalidId);
+
+            //assert
+            //1. Actual Course == Expected Course
+            // Db hit once
+            //logger was not hit
+
+            await Assert.ThrowsAsync<ApplicationException>(() => actualCourse); //why I had to make actualCourse sync, I dont know
+            _appDbContextMock.Verify(db => db.SelectCourseByIdAsync(invalidId), Times.Once);
+            _appDbContextMock.VerifyNoOtherCalls();
+            logger.VerifyNoOtherCalls();
         }
     }
 }

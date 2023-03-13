@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using German.Core.Entities;
 using German.Core.Interfaces;
@@ -19,6 +20,7 @@ namespace German.Core.Entities
         public bool IsDeleted { get; set; }
 
         //navigation property to parent course
+        [Required]
         public Course course { get; set; }  
         public int CourseId { get; set; }
 

@@ -21,11 +21,13 @@ namespace German.Application.Services
 
         public async Task<List<Course>> GetCoursesAsync()
         {
-           return  await db.SelectAllCoursesAsync(); 
+            return await db.SelectAllCoursesAsync();
         }
         public async Task<Course> GetCourseAsync(int Id)
         {
             var course = await  db.SelectCourseByIdAsync(Id);
+
+            if(course is null) { throw new ApplicationException($"Course with Id {Id} not found"); }
             return course;
         }
     }

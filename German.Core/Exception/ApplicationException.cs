@@ -12,5 +12,7 @@ namespace German.Core.Exception
         public ApplicationException(string message):base(message) { }
 
 
+
+
     }
 }
