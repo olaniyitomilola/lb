@@ -20,15 +20,11 @@ namespace German.Core.Entities
         public string Email { get; set; }
         //core identity uses email as primary username
         public string Password { get; set; }
-        public string UserName { get; set; }
-
         public string PhoneNumber { get; set; }
         public string Suffix { get; set; }
         public string webUrl { get; set; }
         public string Description { get; set; }
 
-        public int UserID { get; set; } 
-        public User User { get; set; }
 
         public ICollection<AuthorCourseLesson> CourseLessons { get;set; }
     }
