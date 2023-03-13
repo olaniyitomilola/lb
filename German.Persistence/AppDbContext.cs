@@ -50,6 +50,45 @@ namespace German.Persistence
 				.HasForeignKey(p => p.CourseLessonId);
             #endregion
         }
+
+		//override saveChanges to automatically add course creation date on add, delete and update
+
+		private void HandleIAuditableEntities()
+		{
+			var entities = ChangeTracker.Entries().Where(entry => (entry.State == EntityState.Added || entry.State == EntityState.Modified || entry.State == EntityState.Deleted));
+			foreach (var entity in entities)
+			{
+				if (typeof(IAuditableEntity).IsAssignableFrom(entity.Entity.GetType()))
+				{
+					var modificationDate = DateTime.UtcNow;
+
+					if(entity.State == EntityState.Added)
+					{
+						entity.CurrentValues["DateCreated"] = modificationDate;
+					}
+
+                    if (entity.State == EntityState.Deleted)
+                    {
+						entity.State = EntityState.Modified;
+                        entity.CurrentValues["DateDeleted"] = modificationDate;
+						entity.CurrentValues["isDeleted"] = true;
+                    }
+
+					entity.CurrentValues["DateUpdated"] = modificationDate;
+                }
+			}
+		}
+
+		public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
+		{
+			HandleIAuditableEntities();
+			return await base.SaveChangesAsync(cancellationToken);
+		}
+        public override int SaveChanges()
+        {
+			HandleIAuditableEntities();
+            return base.SaveChanges();
+        }
     }
 }
 
