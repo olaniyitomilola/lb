@@ -41,7 +41,9 @@ namespace German.API.Controllers
                 }
                 else
                 {
-                    return BadRequest(ex.Message);  
+                    _logger.LogError(ex.Message);
+                    return BadRequest(ex.Message);
+
                 }
             }
 
@@ -55,7 +57,73 @@ namespace German.API.Controllers
 
             return CreatedAtAction(nameof(GetById), new { id = author.Id}, author);
         }
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                var author = await _db.SelectAuthorByIdAsync(id);
 
+                try
+                {
+                   var response = await _db.DeleteAuthorAsync(author);
+                   return Ok(response);
+                }
+                catch(Exception ex)
+                {
+                    _logger.LogError(ex.Message);
+                    return BadRequest(ex.Message);
+                }
+                
+            } catch(Exception ex)
+            {
+                if (ex is ApplicationException)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    _logger.LogError(ex.Message);
+                    return BadRequest(ex.Message);
 
+                }
+            }
+        }
+
+        [HttpPut("{id}")]
+
+        public async Task<IActionResult> Put(int id)
+        {
+            try
+            {
+                var author = await _db.SelectAuthorByIdAsync(id);
+
+                try
+                {
+                    var response = await _db.UpdateAuthorAsync(author);
+                    return Ok(response);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex.Message);
+                    return BadRequest(ex.Message);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                if (ex is ApplicationException)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    _logger.LogError(ex.Message);
+                    return BadRequest(ex.Message);
+
+                }
+            }
+
+        }
     }
 }
