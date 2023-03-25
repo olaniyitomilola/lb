@@ -31,3 +31,16 @@ C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Application\obj\Debug\n
 C:\Users\moji\source\repos\olaniyitomilola\german\German.Application\bin\Debug\netstandard2.0\German.Core.dll
 C:\Users\moji\source\repos\olaniyitomilola\german\German.Application\bin\Debug\netstandard2.0\German.Core.pdb
 C:\Users\moji\source\repos\olaniyitomilola\german\German.Application\obj\Debug\netstandard2.0\German.Application.csproj.CopyComplete
+C:\Users\moji\Source\Repos\german\German.Application\bin\Debug\netstandard2.0\German.Application.deps.json
+C:\Users\moji\Source\Repos\german\German.Application\bin\Debug\netstandard2.0\German.Application.dll
+C:\Users\moji\Source\Repos\german\German.Application\bin\Debug\netstandard2.0\German.Application.pdb
+C:\Users\moji\Source\Repos\german\German.Application\bin\Debug\netstandard2.0\German.Core.dll
+C:\Users\moji\Source\Repos\german\German.Application\bin\Debug\netstandard2.0\German.Core.pdb
+C:\Users\moji\Source\Repos\german\German.Application\obj\Debug\netstandard2.0\German.Application.csproj.AssemblyReference.cache
+C:\Users\moji\Source\Repos\german\German.Application\obj\Debug\netstandard2.0\German.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\moji\Source\Repos\german\German.Application\obj\Debug\netstandard2.0\German.Application.AssemblyInfoInputs.cache
+C:\Users\moji\Source\Repos\german\German.Application\obj\Debug\netstandard2.0\German.Application.AssemblyInfo.cs
+C:\Users\moji\Source\Repos\german\German.Application\obj\Debug\netstandard2.0\German.Application.csproj.CoreCompileInputs.cache
+C:\Users\moji\Source\Repos\german\German.Application\obj\Debug\netstandard2.0\German.Application.csproj.CopyComplete
+C:\Users\moji\Source\Repos\german\German.Application\obj\Debug\netstandard2.0\German.Application.dll
+C:\Users\moji\Source\Repos\german\German.Application\obj\Debug\netstandard2.0\German.Application.pdb

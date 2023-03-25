@@ -28,3 +28,13 @@ C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Infrastructure\obj\Debu
 C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Infrastructure\obj\Debug\netstandard2.0\German.Infrastructure.csproj.CoreCompileInputs.cache
 C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Infrastructure\obj\Debug\netstandard2.0\German.Infrastructure.dll
 C:\Users\moji\Source\Repos\olaniyitomilola\german\German.Infrastructure\obj\Debug\netstandard2.0\German.Infrastructure.pdb
+C:\Users\moji\Source\Repos\german\German.Infrastructure\bin\Debug\netstandard2.0\German.Infrastructure.deps.json
+C:\Users\moji\Source\Repos\german\German.Infrastructure\bin\Debug\netstandard2.0\German.Infrastructure.dll
+C:\Users\moji\Source\Repos\german\German.Infrastructure\bin\Debug\netstandard2.0\German.Infrastructure.pdb
+C:\Users\moji\Source\Repos\german\German.Infrastructure\obj\Debug\netstandard2.0\German.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\moji\Source\Repos\german\German.Infrastructure\obj\Debug\netstandard2.0\German.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\moji\Source\Repos\german\German.Infrastructure\obj\Debug\netstandard2.0\German.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\moji\Source\Repos\german\German.Infrastructure\obj\Debug\netstandard2.0\German.Infrastructure.AssemblyInfo.cs
+C:\Users\moji\Source\Repos\german\German.Infrastructure\obj\Debug\netstandard2.0\German.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\moji\Source\Repos\german\German.Infrastructure\obj\Debug\netstandard2.0\German.Infrastructure.dll
+C:\Users\moji\Source\Repos\german\German.Infrastructure\obj\Debug\netstandard2.0\German.Infrastructure.pdb

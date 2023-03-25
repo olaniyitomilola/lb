@@ -7,11 +7,12 @@ namespace German.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthorController : Controller
+    public class CourseController : Controller
     {
         private readonly IAppDbContext _db;
         private readonly ILogger<AuthorController> _logger;
-        public AuthorController(IAppDbContext db, ILogger<AuthorController> logger) {
+        public CourseController(IAppDbContext db, ILogger<AuthorController> logger)
+        {
             _db = db;
             _logger = logger;
         }
@@ -22,15 +23,16 @@ namespace German.API.Controllers
         {
             try
             {
-                var authors = await _db.SelectAllAuthorsAsync();
+                var courses = await _db.SelectAllCoursesAsync();
 
-                return Ok(authors);
-            }catch(Exception ex)
-            {
-                _logger.LogError(ex.Message, ex); 
-                return BadRequest(ex.Message);  
+                return Ok(courses);
             }
-            
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message, ex);
+                return BadRequest(ex.Message);
+            }
+
         }
 
         [HttpGet("{id}")]
@@ -38,13 +40,16 @@ namespace German.API.Controllers
         {
             try
             {
-                var authors = await _db.SelectAuthorByIdAsync(id);
-                return Ok(authors);
+                var course = await _db.SelectCourseByIdAsync(id);
+                
+                return Ok(course);
 
 
-            } catch(Exception ex) { 
+            }
+            catch (Exception ex)
+            {
 
-                if(ex is ApplicationException)
+                if (ex is ApplicationException)
                 {
                     return NotFound();
                 }
@@ -60,31 +65,32 @@ namespace German.API.Controllers
 
         [HttpPost]
 
-        public async Task<IActionResult> Post(Author author)
+        public async Task<IActionResult> Post(Course course)
         {
-            var response = await _db.CreateAuthorAsync(author);
+            var response = await _db.CreateCourseAsync(course);
 
-            return CreatedAtAction(nameof(GetById), new { id = author.Id}, author);
+            return CreatedAtAction(nameof(GetById), new { id = course.Id }, course);
         }
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
             try
             {
-                var author = await _db.SelectAuthorByIdAsync(id);
+                var course = await _db.SelectCourseByIdAsync(id);
 
                 try
                 {
-                   var response = await _db.DeleteAuthorAsync(author);
-                   return Ok(response);
+                    var response = await _db.DeleteCourseAsync(course);
+                    return Ok(response);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     _logger.LogError(ex.Message);
                     return BadRequest(ex.Message);
                 }
-                
-            } catch(Exception ex)
+
+            }
+            catch (Exception ex)
             {
                 if (ex is ApplicationException)
                 {
@@ -101,15 +107,18 @@ namespace German.API.Controllers
 
         [HttpPut("{id}")]
 
-        public async Task<IActionResult> Put(int id)
+        public async Task<IActionResult> Put(int id, Course course)
         {
             try
             {
-                var author = await _db.SelectAuthorByIdAsync(id);
+                var excourse = await _db.SelectCourseByIdAsync(id);
 
+                excourse.Name = course.Name;
+                excourse.Description = course.Description;
+                excourse.CourseUrl = course.Description;
                 try
                 {
-                    var response = await _db.UpdateAuthorAsync(author);
+                    var response = await _db.UpdateCourseAsync(excourse);
                     return Ok(response);
                 }
                 catch (Exception ex)

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German\\German.Web.MVC.csproj": {}
+    "C:\\Users\\moji\\Source\\Repos\\german\\German\\German.Web.MVC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Application\\German.Application.csproj": {
+    "C:\\Users\\moji\\Source\\Repos\\german\\German.Application\\German.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Application\\German.Application.csproj",
+        "projectUniqueName": "C:\\Users\\moji\\Source\\Repos\\german\\German.Application\\German.Application.csproj",
         "projectName": "German.Application",
-        "projectPath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Application\\German.Application.csproj",
+        "projectPath": "C:\\Users\\moji\\Source\\Repos\\german\\German.Application\\German.Application.csproj",
         "packagesPath": "C:\\Users\\moji\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Application\\obj\\",
+        "outputPath": "C:\\Users\\moji\\Source\\Repos\\german\\German.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "netstandard2.0": {
             "targetAlias": "netstandard2.0",
             "projectReferences": {
-              "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj": {
-                "projectPath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj"
+              "C:\\Users\\moji\\Source\\Repos\\german\\German.Core\\German.Core.csproj": {
+                "projectPath": "C:\\Users\\moji\\Source\\Repos\\german\\German.Core\\German.Core.csproj"
               }
             }
           }
@@ -75,14 +75,14 @@
         }
       }
     },
-    "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj": {
+    "C:\\Users\\moji\\Source\\Repos\\german\\German.Core\\German.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj",
+        "projectUniqueName": "C:\\Users\\moji\\Source\\Repos\\german\\German.Core\\German.Core.csproj",
         "projectName": "German.Core",
-        "projectPath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj",
+        "projectPath": "C:\\Users\\moji\\Source\\Repos\\german\\German.Core\\German.Core.csproj",
         "packagesPath": "C:\\Users\\moji\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\obj\\",
+        "outputPath": "C:\\Users\\moji\\Source\\Repos\\german\\German.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -142,14 +142,14 @@
         }
       }
     },
-    "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Persistence\\German.Persistence.csproj": {
+    "C:\\Users\\moji\\Source\\Repos\\german\\German.Persistence\\German.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Persistence\\German.Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\moji\\Source\\Repos\\german\\German.Persistence\\German.Persistence.csproj",
         "projectName": "German.Persistence",
-        "projectPath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Persistence\\German.Persistence.csproj",
+        "projectPath": "C:\\Users\\moji\\Source\\Repos\\german\\German.Persistence\\German.Persistence.csproj",
         "packagesPath": "C:\\Users\\moji\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Persistence\\obj\\",
+        "outputPath": "C:\\Users\\moji\\Source\\Repos\\german\\German.Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -171,8 +171,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj": {
-                "projectPath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj"
+              "C:\\Users\\moji\\Source\\Repos\\german\\German.Core\\German.Core.csproj": {
+                "projectPath": "C:\\Users\\moji\\Source\\Repos\\german\\German.Core\\German.Core.csproj"
               }
             }
           }
@@ -235,14 +235,14 @@
         }
       }
     },
-    "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German\\German.Web.MVC.csproj": {
+    "C:\\Users\\moji\\Source\\Repos\\german\\German\\German.Web.MVC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German\\German.Web.MVC.csproj",
+        "projectUniqueName": "C:\\Users\\moji\\Source\\Repos\\german\\German\\German.Web.MVC.csproj",
         "projectName": "German",
-        "projectPath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German\\German.Web.MVC.csproj",
+        "projectPath": "C:\\Users\\moji\\Source\\Repos\\german\\German\\German.Web.MVC.csproj",
         "packagesPath": "C:\\Users\\moji\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German\\obj\\",
+        "outputPath": "C:\\Users\\moji\\Source\\Repos\\german\\German\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -264,14 +264,14 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Application\\German.Application.csproj": {
-                "projectPath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Application\\German.Application.csproj"
+              "C:\\Users\\moji\\Source\\Repos\\german\\German.Application\\German.Application.csproj": {
+                "projectPath": "C:\\Users\\moji\\Source\\Repos\\german\\German.Application\\German.Application.csproj"
               },
-              "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj": {
-                "projectPath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Core\\German.Core.csproj"
+              "C:\\Users\\moji\\Source\\Repos\\german\\German.Core\\German.Core.csproj": {
+                "projectPath": "C:\\Users\\moji\\Source\\Repos\\german\\German.Core\\German.Core.csproj"
               },
-              "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Persistence\\German.Persistence.csproj": {
-                "projectPath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Persistence\\German.Persistence.csproj"
+              "C:\\Users\\moji\\Source\\Repos\\german\\German.Persistence\\German.Persistence.csproj": {
+                "projectPath": "C:\\Users\\moji\\Source\\Repos\\german\\German.Persistence\\German.Persistence.csproj"
               }
             }
           }

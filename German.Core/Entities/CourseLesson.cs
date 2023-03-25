@@ -20,14 +20,13 @@ namespace German.Core.Entities
         public bool IsDeleted { get; set; }
 
         //navigation property to parent course
-        [Required]
         public Course course { get; set; }  
         public int CourseId { get; set; }
 
         [Required]
-        public string CourseName { get; set; }
+        public string LessonName { get; set; }
         [Required]
-        public string CourseDescription { get;set;}
+        public string LessonDescription { get;set;}
         [Required]
         public SubscriptionType SubscriptionType { get; set; }
 
