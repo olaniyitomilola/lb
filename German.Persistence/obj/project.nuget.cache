@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5W3Doae9XBba8pELlHlt93BPCwuW+Iywk7+kc8KIG0nutdTSmGSAEt+MRl5SFrW4ClLSzIjaSeOgvLU606bvrQ==",
+  "dgSpecHash": "XV+g0Y9BlsklpBP/Tink5dJt9AJ8LsAv/5TqyuuD8FRNqngTShyE2o7yDif2B67RPxwmAfrzaDRVIGD8K5uheQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\moji\\source\\repos\\olaniyitomilola\\german\\German.Persistence\\German.Persistence.csproj",
   "expectedPackageFiles": [
@@ -24,6 +24,7 @@
     "C:\\Users\\moji\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\moji\\.nuget\\packages\\microsoft.extensions.configuration.fileextensions\\7.0.0\\microsoft.extensions.configuration.fileextensions.7.0.0.nupkg.sha512",
     "C:\\Users\\moji\\.nuget\\packages\\microsoft.extensions.configuration.json\\7.0.0\\microsoft.extensions.configuration.json.7.0.0.nupkg.sha512",
+    "C:\\Users\\moji\\.nuget\\packages\\microsoft.extensions.configuration.usersecrets\\6.0.1\\microsoft.extensions.configuration.usersecrets.6.0.1.nupkg.sha512",
     "C:\\Users\\moji\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\moji\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\moji\\.nuget\\packages\\microsoft.extensions.dependencymodel\\7.0.0\\microsoft.extensions.dependencymodel.7.0.0.nupkg.sha512",

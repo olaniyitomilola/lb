@@ -27,7 +27,10 @@ namespace German.Persistence
             var author = await this.Authors
                         .AsNoTracking() 
                         .FirstOrDefaultAsync(p => p.Id == authorId);
-            if(author == null) throw new NullReferenceException(nameof(author));
+            if(author == null)
+            {
+                throw new ApplicationException($"Author with id: {authorId} does not exist");
+            }
 
             return author;
         }
