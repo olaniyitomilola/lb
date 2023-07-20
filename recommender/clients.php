@@ -16,13 +16,14 @@
             <div class="navLinks">
                 <a  href="./homepage.php">Home</a>
                 <a class="active" href="./clients.php">Clients</a>
-                <a href="./investments.php">investments</a>
-
-
+                <a href="./investments.php">Investments</a>
             </div>
-          
         </div>
         <div class="container_body">
+            <div class="searchClient">
+                <input type="search" placeholder="Search Client">
+                <input type="button" value="Search">
+            </div>
           
         </div>
     </div>
