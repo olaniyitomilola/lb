@@ -24,7 +24,5 @@ try{
     exit();
 }
 
-//insert into db;
-
 
 ?>

@@ -19,9 +19,10 @@
             <h1>Manager's Log In</h1>
             <p>New Manager? <span><a href="./signup.php">Register</a></span></p>
             <form>
-                <input type="email" placeholder="email">
-                <input type="password" placeholder="********">
-                <input type="button" value="Sign In">
+                <input type="email" placeholder="email" id="email">
+                <input type="password" placeholder="********" id="password">
+                <input type="button" value="Sign In" id="signInBtn">
+                <div id="notification"></div>
             </form>
         </div>
     </div>

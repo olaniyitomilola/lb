@@ -24,8 +24,8 @@
                 <input type="email" placeholder="Email" id="email" name="email">
                 <input type="password" placeholder="Enter Password" id="password" name="password">
                 <input type="password" placeholder="Confirm Password" id="confirm_password">
-
-                <input type="button" value="Register">
+                <div id = "notification"></div>
+                <input type="button" value="Register" id="regBtn">
             </form>
         </div>
     </div>

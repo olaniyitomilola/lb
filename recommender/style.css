@@ -65,6 +65,28 @@ body {
     color: var(--secondary);
 
 }
+.container_body.index form{
+    display: flex;
+    flex-direction: column;
+    width: clamp(10rem, 70%, 25rem);
+    gap: 0.5rem;
+}
+
+.container_body.index form input#sub  {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 10px;
+}
+
+.container_body.index form input[type="button"] {
+    padding: 0.5rem;
+    border: none;
+    background-color: #007bff;
+    color: #f5f5f5;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 .container_body.index{
     padding-top: 5rem;
     gap: 2rem;
@@ -92,7 +114,9 @@ body {
     cursor: pointer;
     border-radius: 10px;
 }
-
+#notification{
+    color: red;
+}
 .container_body.sign_in form {
     display: flex;
     flex-direction: column;
@@ -179,7 +203,7 @@ body {
     border: none;
     border-radius: 10px;
 }
-.tokenHeaderAndAdd{
+.tokenHeaderAndAdd, .clientListHeader{
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -199,7 +223,7 @@ body {
     cursor: pointer;
 
 }
-.tokenList{
+.tokenList, .clientList{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -224,7 +248,7 @@ body {
     font-weight: 600;
 }
 .eachToken #tokenCategory {
-    width: clamp(8rem, 100%, 10rem);
+    width: clamp(8rem, 100%, 15rem);
 }
 .eachToken #tokenPrice {
     width: clamp(5rem, 20%, 6rem);
@@ -234,7 +258,7 @@ body {
     width: clamp(5rem, 20%, 6rem);
     color: var(--secondary)
 }
-.eachToken input{
+.eachToken input[type="button"]{
     width: clamp(6rem, 100%, 8rem);
     background-color: #007bff;
     color: white;
@@ -249,4 +273,29 @@ body {
     flex: 1;
     justify-content: flex-end;
     gap: 1rem;
+}
+.eachClient{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border: 1px solid var(--primary);
+    padding: 1rem;
+    align-items: center;
+    border-radius: 10px;
+
+}
+.clientInfo{
+    width: clamp(10rem, 100%, 35rem);
+}
+.clientName{
+    font-weight: 800;
+}
+.clientInfo ul{
+    display: flex;
+    margin-block: 0;
+    flex-direction: column;
+    padding-inline-start: 1rem;
+}
+.riskTolerance{
+    margin-top: 1rem;
 }

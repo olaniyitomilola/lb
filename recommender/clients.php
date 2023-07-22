@@ -24,6 +24,61 @@
                 <input type="search" placeholder="Search Client">
                 <input type="button" value="Search">
             </div>
+            <div class="clientListHeader">
+                <h3>Client List</h3>
+            </div>
+            <div class="clientList">
+                <div class="eachClient">
+                    <div class="clientInfo">
+                        <div class="clientName">
+                            Michael Blackson
+                        </div>
+                        <ul class="clientPreferences">
+                            <li>Layer 1</li>
+                            <li>Liquid Staking Tokens</li>
+                            <li>Decentralized Finance</li>
+                            <li>Smart Contract Platform</li>
+                            <li>Layer 2</li>
+                        </ul>
+                        <div class="riskTolerance">Risk Tolerance: <span>High</span></div>
+
+                    </div>
+                    <div class="clientRecomendations">
+                        <h3>Recommended Tokens</h3>
+                        <ul>
+                            <li>Bitcoin</li>
+                            <li>Ethereum</li>
+                            <li>Cardano</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+                 <div class="eachClient">
+                    <div class="clientInfo">
+                        <div class="clientName">
+                            Bankole Williams
+                        </div>
+                        <ul class="clientPreferences">
+                            <li>Layer 1</li>
+                            <li>Liquid Staking Tokens</li>
+                      
+                        </ul>
+                        <div class="riskTolerance">Risk Tolerance: <span>Low</span></div>
+
+                    </div>
+                    <div class="clientRecomendations">
+                        <h3>Recommended Tokens</h3>
+                        <ul>
+                            <li>Bitcoin</li>
+                            <li>Ethereum</li>
+                            <li>Cardano</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
           
         </div>
     </div>

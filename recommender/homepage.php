@@ -10,7 +10,7 @@
     
 </head>
 <body>
-    <div class="container">
+    <div class="container homepage">
         <div class="header">
             <div class="logo">RECOMMENDER</div>
             <div class="navLinks">
@@ -22,11 +22,11 @@
         </div>
         <div class="container_body">
             <div class="analysisBox">
-                <div class="box">
+                <div class="box clients">
                     <h4>Number of Subscribed Clients</h4>
                     <h2>4</h2>
                 </div>
-                <div class="box">
+                <div class="box token">
                     <h4>Number of Tokens</h4>
                     <h2>20</h2>
                 </div>

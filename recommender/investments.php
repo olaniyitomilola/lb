@@ -22,7 +22,7 @@
             </div>
           
         </div>
-        <div class="container_body">
+        <div class="container_body investment">
 
             <div class="searchClient tokens">
                 <input type="search" placeholder="Search Token">
@@ -34,42 +34,8 @@
                 <input type="button" value="Add">
             </div>
             <div class="tokenList">
-                <div class="eachToken">
-                    <div id="tokenIdentifier">BTC</div>
-                    <div id="tokenName">Bitcoin</div>
-                    <div id="tokenCategory">Layer 1</div>
-                    <div id="tokenPrice">$29450</div>
-                    <div id="riskLevel">Low</div>
-
-                    <div class="eachTokenButtons">
-                        <input type="button" value="Edit">
-                        <input type="button" value="Send">
-                    </div>
-
-                </div>
-                <div class="eachToken">
-                    <div id="tokenIdentifier">ETH</div>
-                    <div id="tokenName">Ethereum</div>
-                    <div id="tokenCategory">Layer 1</div>
-                    <div id="tokenPrice">$1,898.39</div>
-                    <div id="riskLevel">Moderate</div>
-                    <div class="eachTokenButtons">
-                        <input type="button" value="Edit">
-                        <input type="button" value="Send">
-                    </div>
-
-                </div>
-                 <div class="eachToken">
-                    <div id="tokenIdentifier">ADA</div>
-                    <div id="tokenName">Cardano</div>
-                    <div id="tokenCategory">Layer 1</div>
-                    <div id="tokenPrice">$0.3271</div>
-                    <div id="riskLevel">High</div>
-                    <div class="eachTokenButtons">
-                        <input type="button" value="Edit">
-                        <input type="button" value="Send">
-                    </div>
-                </div>
+     
+             
             </div>
           
         </div>
