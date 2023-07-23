@@ -44,4 +44,25 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 }
 
+if($_SERVER["REQUEST_METHOD"] == "GET"){
+    try{
+        $category = $_GET["category"];
+        
+        $result = getUsersWithCategory($category);
+        echo json_encode($result);
+
+    }catch(Exception $error){
+        $response = [
+            'success' => false,
+            'error' => $error
+        ];
+
+        echo json_encode($response);
+    }
+    
+    
+    
+
+}
+
 ?>

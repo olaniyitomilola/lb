@@ -136,6 +136,35 @@
         ];
     }
 }
+
+function getClientRecommendation($userId){
+
+    try{
+        $query = $GLOBALS['pdo']->prepare("SELECT r.* , token.*
+                                            FROM recommended_tokens r
+                                            JOIN investment_ideas token ON r.token_id = token.id
+                                            WHERE subscriber_id = :userId");
+        $query->bindParam(':userId',$userId);
+
+
+        $query->execute();  
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        $res = [
+            'success'=> true,
+            'message' =>$result
+
+        ] ;
+        return $res;                                                      
+    } catch(Exception $e){
+        $res = [
+            'success'=> false,
+            'error' => $e->getMessage()
+        ];
+        return $res;
+    }
+    
+}
+
    
    
     //remove token from db
@@ -161,5 +190,70 @@ function removeToken($tokenid){
         ];
     }
 }
+
+function getUsersWithCategory($xchange){
+    try{
+        if($xchange == "Layer 1"){
+            $query = $GLOBALS['pdo']->prepare("SELECT * FROM  subscription_list
+        
+            WHERE layer_1 IS NOT NULL");  
+        }else if($xchange == "Smart Contract Platform"){
+            $query = $GLOBALS['pdo']->prepare("SELECT * FROM subscription_list 
+        
+            WHERE smart_contract_platform IS NOT NULL");  
+        }else if($xchange == "Layer 2"){
+            $query = $GLOBALS['pdo']->prepare("SELECT * FROM subscription_list 
+        
+            WHERE layer_2 IS NOT NULL");   
+        }else if($xchange == "Liquid Staking Tokens"){
+            $query = $GLOBALS['pdo']->prepare("SELECT * FROM subscription_list 
+        
+            WHERE liquid_staking_token IS NOT NULL");   
+        }
+        else{
+            $query = $GLOBALS['pdo']->prepare("SELECT * FROM subscription_list 
+        
+            WHERE defi IS NOT NULL");  
+        }
+    
+        $query->execute();
+        
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }catch(Exception $e){
+        $res = [
+            'success'=> false,
+            'error' => $e->getMessage()
+        ];
+        return $res;
+    }
+   
+   
+}
+
+//send recommendation to cliebnt
+function sendtoclient($token_id, $clientId){
+
+    try{
+        $query = $GLOBALS['pdo']->prepare("INSERT INTO  recommended_tokens (subscriber_id, token_id) VALUES(:subscriber_id,:token_id )");
+        $query->bindParam(':token_id',$token_id);
+        $query->bindParam(':subscriber_id',$clientId);
+
+
+        $query->execute();  
+        $res = [
+            'success'=> true
+        ] ;
+        return $res;                                                      
+    } catch(Exception $e){
+        $res = [
+            'success'=> false,
+            'error' => $e->getMessage()
+        ];
+        return $res;
+    }
+    
+}
+
 
 ?>

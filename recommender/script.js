@@ -90,7 +90,7 @@ if(regBtn){
 const loginBtn = document.querySelector('.container_body.sign_in #signInBtn')
 
 if(loginBtn){
-    let form = document.querySelector('.container_body.sign_in form')
+    let form = document.querySelector('.sign_in_form')
     let inputs = document.querySelectorAll('.container_body.sign_in input');
     let email = document.querySelector('#email')
     let notification = document.getElementById('notification')
@@ -101,15 +101,18 @@ if(loginBtn){
     loginBtn.addEventListener('click', async ()=>{
         //input validation
         if(!email.value || !password.value){
-            notification.textContent = "All inputs required."
+            notification.textContent = "All Inputs required."
         }else{
+            let newForm = new FormData(form)
             let req = await fetch('./backend/api/signin.php',{
                 method: "post",
-                body: new FormData(form)
+                body: newForm
             })
-            let res = await req.text();
+            let res = await req.json();
 
-            console.log(res)
+            if(res.success){
+                window.location ="./homepage.php"
+            }
         }
     })
 }
@@ -137,7 +140,7 @@ if(homepage){
 
 
 }
-
+//handle events on investment page
 const investmentPage = document.querySelector('.tokenList')
 
 if(investmentPage){
@@ -165,6 +168,27 @@ if(investmentPage){
     }
 
     investmentPageHandler()
+}
+
+//client list page
+
+const clientPage = document.querySelector('.container_body.clients')
+
+if(clientPage){
+    async function clientPageHandler(){
+        let clientList = document.querySelector('.clientList');
+        let theClients = await getClients();
+        for(const id of theClients){
+            
+            let eachClient = await  createClientElement(id);
+
+            clientList.appendChild(eachClient)
+            
+        }
+    }
+
+
+    clientPageHandler()
 }
 
 
@@ -258,11 +282,24 @@ function renderTokenComponent(token, parentElement, callBack) {
 
     eachTokenButtonsDiv.appendChild(deleteButton);
 
-    // Send Button
+    // View Button
     const sendButton = document.createElement('input');
     sendButton.type = 'button';
-    sendButton.value = 'Send';
+    sendButton.value = 'View';
+    sendButton.id = "viewButton"
     eachTokenButtonsDiv.appendChild(sendButton);
+
+    //evnt listener
+    sendButton.addEventListener('click', async ()=>{
+
+        const list = await fetch(`./backend/api/subscribe.php?category=${token.token_category}`)
+
+        let res = await list.json();
+
+        
+        
+        viewClientsModal(res,parentElement,token.id)
+    })
 
     eachTokenDiv.appendChild(eachTokenButtonsDiv);
 
@@ -342,5 +379,146 @@ function prependToken(parent,clickAble,callBack){
 
 }
 
+
+async function createClientElement(clientData) {
+  const eachClientDiv = document.createElement('div');
+  eachClientDiv.className = 'eachClient';
+
+  // Client Info
+  const clientInfoDiv = document.createElement('div');
+  clientInfoDiv.className = 'clientInfo';
+
+  // Client Name
+  const clientNameDiv = document.createElement('div');
+  clientNameDiv.className = 'clientName';
+  clientNameDiv.textContent = clientData.first_name + " " + clientData.last_name;
+  clientInfoDiv.appendChild(clientNameDiv);
+
+  // Client Preferences
+  const clientPreferencesUl = document.createElement('ul');
+  clientPreferencesUl.className = 'clientPreferences';
+  
+    if(clientData.layer_1){
+        const preferenceLi = document.createElement('li');
+        preferenceLi.textContent = "Layer 1"
+        clientPreferencesUl.appendChild(preferenceLi);
+    }
+    if(clientData.liquid_staking_token){
+        const preferenceLi = document.createElement('li');
+        preferenceLi.textContent = "Liquid Staking Token"
+        clientPreferencesUl.appendChild(preferenceLi);
+    }
+    if(clientData.defi){
+        const preferenceLi = document.createElement('li');
+        preferenceLi.textContent = "Decentralized Finance"
+        clientPreferencesUl.appendChild(preferenceLi);
+    }
+
+    if(clientData.layer_2){
+        const preferenceLi = document.createElement('li');
+        preferenceLi.textContent = "Layer 2"
+        clientPreferencesUl.appendChild(preferenceLi);
+    }
+    if(clientData.smart_contract_platform
+        ){
+        const preferenceLi = document.createElement('li');
+        preferenceLi.textContent = "Smart Contract Platform"
+        clientPreferencesUl.appendChild(preferenceLi);
+    }
+  clientInfoDiv.appendChild(clientPreferencesUl);
+
+  
+
+  eachClientDiv.appendChild(clientInfoDiv);
+
+  // Client Recommendations
+  const clientRecomendationsDiv = document.createElement('div');
+  clientRecomendationsDiv.className = 'clientRecomendations';
+
+  const recommendationsHeading = document.createElement('h3');
+  recommendationsHeading.textContent = 'Recommended Tokens';
+  clientRecomendationsDiv.appendChild(recommendationsHeading);
+
+  const recommendationsUl = document.createElement('ul');
+
+    let form = new FormData();
+    form.append('id',clientData.id)
+            let req = await fetch('./backend/api/getAllTokens.php',{
+                method: "post",
+                body: form
+            })
+            let res = await req.json()
+
+  for (const recommendation of res.message) {
+    const recommendationLi = document.createElement('li');
+    recommendationLi.textContent = recommendation.token_name;
+    recommendationsUl.appendChild(recommendationLi);
+  }
+  clientRecomendationsDiv.appendChild(recommendationsUl);
+
+  eachClientDiv.appendChild(clientRecomendationsDiv);
+
+  return eachClientDiv;
+}
+
+//modal
+
+function viewClientsModal(clients,parent,tokenId){
+    let modal = document.createElement('div');
+    modal.className = "modal";
+    let sulList = document.createElement('div');
+    sulList.className = "subscribers"
+
+
+
+    for(const client of clients){
+        let eachClient = document.createElement('div')
+        eachClient.className = "eachSubClient";
+
+        let clientName = document.createElement('div');
+        clientName.textContent = client.first_name + " " + client.last_name;
+
+        let sendButton = document.createElement('button');
+        sendButton.textContent = "Send"
+
+        sendButton.addEventListener('click', async ()=>{
+            let form = new FormData();
+            form.append('subscriber_id',client.id)
+            form.append('token_id', tokenId)
+
+            let req = await fetch('./backend/api/sendtoclient.php',{
+                method: "post",
+                body: form
+            })
+
+            req = await req.json();
+
+            if(req.success){
+                sendButton.style.backgroundColor = "green"
+                sendButton.textContent = "SENT!!"
+
+                setTimeout(()=>{
+                    parent.removeChild(modal)
+                },1000)
+            }
+        })
+
+        let CancelButton = document.createElement('button');
+        CancelButton.textContent = "Cancel"
+
+        CancelButton.addEventListener('click',()=>{
+            parent.removeChild(modal)
+        })
+
+        eachClient.append(clientName,sendButton,CancelButton);
+
+        sulList.append(eachClient)
+    }
+
+    modal.appendChild(sulList);
+
+    parent.appendChild(modal);
+
+}
 
 

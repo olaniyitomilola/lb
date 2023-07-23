@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] == "GET"){
             //user already exist
             echo json_encode([
                 'success' => true,
-                'id' => $result[0]['user_id'],
+                'id' => $result[0]['id'],
                 'message' => "user already exist"
             ]);
         }else{
@@ -40,12 +40,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                
                 echo json_encode([
             'success' => true,
-            'message' =>  $result[0]
+            
             ]);
             
             }else{
                 //incorrect password
-                echo json_encode([
+                    echo json_encode([
                     'success' => false,
                     'message' => "Invalid Username or Password"
                 ]);
@@ -54,7 +54,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             //user does
             echo json_encode([
                 'success' => false,
-                'message' => "Invalid username or password"
+                'message' => "Invalid username or password",
+                "tag" => "Account does not exist"
+           
             ]);
         }
     }catch(Exception $e){

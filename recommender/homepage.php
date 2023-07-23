@@ -32,23 +32,23 @@
                 </div>
             </div>
             <div class="tokenBySector">
-                <h4>Tokens by  categories</h4>
+                <h4>Tokens categories</h4>
                 <div class="tokenCategory">
                     <div class="eachCategory">
                         <div id="category">Layer 1</div>
-                        <div id="numIncat">5</div>
+                        
                     </div>
                     <div class="eachCategory">
-                        <div id="category">Exchange-based Tokens</div>
-                        <div id="numIncat">5</div>
+                        <div id="category">Smart Contract Platforms</div>
                     </div>
                     <div class="eachCategory">
                         <div id="category">Liquid Staking Tokens</div>
-                        <div id="numIncat">7</div>
                     </div>
                      <div class="eachCategory">
-                        <div id="category">Yield Farming</div>
-                        <div id="numIncat">3</div>
+                        <div id="category">Layer 2</div>
+                    </div>
+                     <div class="eachCategory">
+                        <div id="category">Decentralized Finance</div>
                     </div>
                 </div>
 

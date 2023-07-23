@@ -18,9 +18,9 @@
         <div class="container_body sign_in">
             <h1>Manager's Log In</h1>
             <p>New Manager? <span><a href="./signup.php">Register</a></span></p>
-            <form>
-                <input type="email" placeholder="email" id="email">
-                <input type="password" placeholder="********" id="password">
+            <form class="sign_in_form">
+                <input type="email" placeholder="email" id="email" name="email">
+                <input type="password" placeholder="********" id="password" name="password">
                 <input type="button" value="Sign In" id="signInBtn">
                 <div id="notification"></div>
             </form>
