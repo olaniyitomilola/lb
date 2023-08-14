@@ -1,17 +1,286 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Irish+Grover&display=swap');
 
 *{
   box-sizing: border-box;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  margin: 0 auto;
+  font-size: 14px;
+  margin: 0;
 }
-
-body{
-  height: 100vh;
+#root{
   width: 100%;
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.App {
+.topNav{
+  padding: 1rem 3rem;
+  border-bottom: solid 1px #ededed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.logo{
+  font-family: 'Irish Grover', cursive;
+  font-size: 1.8rem;
 
+}
+.logo.sign{
+  color: #fff;
+  cursor: pointer;
+}
+.App {
   
+    width: clamp(300px, 100%, 1440px);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    
+  
+}
+.herobody{
+  position: relative;
+  flex: 1;
+}
+.buttons{
+  width: clamp(100px, 30%,150px);
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.buttons button{
+  width: 96px;
+  height: 30px;
+  color: #f08d19;
+  padding: 8px, 24px,8px,24px;
+  background-color: transparent;
+  border-radius: 8px;
+  border: 1px solid #ededed;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.buttons button#signUpbtn {
+  
+  background-color: #f08d19;
+  color: #fff;
+  
+}
+.herobody{
+  width: 100%;
+  padding: 0rem 3rem;
+}
+.heroPage{
+  padding-top: 1rem;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.leftHeroPage{
+  flex: 1.5;
+  
+  
+  
+}
+.rightHeroPage{
+  flex: 1 2;
+  position: relative;
+  padding-left: 40px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+}
+.leftHeroContainer{
+  height: 80%;
+  margin-top: 7%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  
+}
+.leftHeroContainer h1{
+  font-size: 5rem;
+  margin-bottom: 2rem;
+  color: #151414;
+}
+.leftHeroContainer p {
+  font-size: 1.5rem;
+  color: #5a6474;
+  margin-bottom: 2rem;
+}
+.leftHeroContainer button{
+  width: 14rem;
+  height: 3rem;
+  padding: 12px 32px 12px 32px;
+  color: #fff;
+  background-color: #f08d19;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.stats{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 7rem;
+}
+.statis{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.statis h2{
+  font-size: 2rem;
+}
+.statis p{
+  font-size: 0.8rem;
+}
+.imgContainer1{
+  display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  height: 90%;
+}
+.imgContainer2 {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  height: 100%;
+  padding-top: 100px;
+}
+.img_text{
+  position: relative;
+}
+#firstimgtext{
+  position: absolute;
+  left: -70px;
+}
+#firstimgtext2 {
+  position: absolute;
+  right: -50px;
+}
+.img_text1{
+  position: relative;
+  
+}
+#firstimgtext1 {
+  position: absolute;
+  right: -70px;
+}
+.responsive{
+  width: 100%;
+  height: auto;
+}
+.signIn{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+.indexPage{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(240, 141, 25, 0.72);
+}
+.signInForm{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  width: clamp(360px, 100%, 500px);
+  padding: 50px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+.signInForm h2{
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #151414;
+}
+.signInForm p{
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  
+}
+.signInForm p span{
+  cursor: pointer;
+  color: #f08d19;
+}
+.signInForm input{
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: solid 1px #e5e9ee;
+}
+.signInForm input[type="button"]{
+  color: #fff;
+  background-color:#f08d19;
+  margin-top: 3rem;
+  cursor: pointer;
+}
+.signInForm label{
+  float: left;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+.languageSelection{
+  width: 100%;
+  height: 100%;
+  background-color: #fff9f0;
+  padding: 5rem;
+}
+.languageSelection .selectionBody{
+  margin-top: 5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.languageSelection .selectionBody h1{
+  font-size: 2rem;
+}
+.languageSelection .selectionBody .selectionBox{
+  width: clamp(300px, 100%, 700px);
+  margin-top: 3rem;
+  display: flex;flex-direction: row;
+  padding: 3rem;
+  background-color: #fff;
+  border-radius: 8px;
+  justify-content: space-around;
+}
+.languageSelection .selectionBody .selectionBox .select{
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 500ms;
+}
+.select div{
+  margin-top: 1rem;
+}
+.languageSelection .selectionBody .selectionBox .select:hover {
+  background-color: #f08d19;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1000px){
+  .rightHeroPage{
+    display: none;
+  }
+  .leftHeroContainer{
+    align-items: center;
+  }
+    .leftHeroContainer h1, .leftHeroContainer p {
+      text-align: center;
+    }
 }
