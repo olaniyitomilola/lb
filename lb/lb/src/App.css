@@ -19,6 +19,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 .logo{
@@ -265,6 +266,11 @@
   justify-content: center;
   transition: all 500ms;
 }
+.select img{
+  padding: 2rem 3rem;
+  border-radius: 8px;
+  border: 1px solid #b5b5b5;
+}
 .select div{
   margin-top: 1rem;
 }
@@ -272,7 +278,89 @@
   background-color: #f08d19;
   cursor: pointer;
 }
+.dashboard{
+  width: 100%;
+  height: 100%;
 
+}
+.loggedInNavAdd{
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 10rem;
+  justify-content: space-between;
+  
+}
+.courseAndMessageBtn{
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.courseAndMessageBtn button {
+  padding: 1rem 3rem;
+  border: none;
+  background-color: #fafafa;
+  width: 9rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: #757d8a;
+  cursor: pointer;
+  transition: all 200ms;
+}
+.courseAndMessageBtn button.active {
+  border-bottom: solid 2px #f08d19;
+  background-color: #fff6ec;
+  color: #151414;
+
+}
+.languageAndProfile{
+  display: flex;
+  flex-direction: row;
+  gap: 7rem;
+  align-items: center;
+  
+}
+#language{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  padding:  0.5rem 2rem;
+  border-radius: 8px; 
+  border: 1px solid #ededed;
+  color: #151414;
+}
+.nameAndLevel #name{
+  color: #312d29;
+}
+.nameAndLevel #level {
+  color: #8b8884;
+  font-size: 0.8rem;
+}
+
+#profile{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  
+}
+#profile #img{
+  width: 30px;
+  height: 30px;
+  background-color: #f08d19;
+  border-radius: 50%;
+}
+#navFlag{
+  height: 2.5rem;
+  width: auto;
+}
 @media screen and (max-width: 1000px){
   .rightHeroPage{
     display: none;
