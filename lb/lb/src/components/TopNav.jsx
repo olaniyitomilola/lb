@@ -1,20 +1,12 @@
 import LoggedInNavAdd from "./LoggedInNavAdd"
 
 export default function TopNav(props){
-
-
-const Person = {
-    firstName : "Vincent",
-    lastName : "Sacrifice",
-    language : "French",
-    level: "Beginner"
-}
-
+//DB: Person Object needed here
     
     return(
         <div className="topNav">
             <div className="logo">LanguageBuddy</div>
-            {props.isLoggedIn? <Buttons handleIndex = {props.handleIndex}/> :  <LoggedInNavAdd  Person = {Person}/>}
+            {props.isLoggedIn? <Buttons handleIndex = {props.handleIndex}/> :  <LoggedInNavAdd activeNav = {props.activeNav} handleActiveNav = {props.handleActiveNav} Person = {props.Person}/>}
         </div>
     )
 }

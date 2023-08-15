@@ -1,4 +1,3 @@
-import { useState } from "react";
 const germanFlag = require('../assets/flags/german.png')
 const frenchFlag = require('../assets/flags/french.png');
 
@@ -7,17 +6,13 @@ const frenchFlag = require('../assets/flags/french.png');
 
 export default function  LoggedInNavAdd(props){
 
-    const [activeNav, setActiveNav] = useState('courses')
-
-    function handleActiveNav(active){
-        setActiveNav(active);
-    }
-    const{image,firstName,lastName,language,level} = props.Person;
+    
+    const{firstName,lastName,language,level} = props.Person;
     return(
         <div className="loggedInNavAdd">
             <div className="courseAndMessageBtn">
-                <button onClick={()=>handleActiveNav('courses')} className={activeNav === "courses"? "active": ""}>Courses</button>
-                <button onClick={()=>handleActiveNav('messages')}   className={activeNav === "messages"? "active": ""}   >Messages</button>
+                <button onClick={()=>props.handleActiveNav('courses')} className={props.activeNav === "courses"? "active": ""}>Courses</button>
+                <button onClick={()=>props.handleActiveNav('messages')}   className={props.activeNav === "messages"? "active": ""}   >Messages</button>
 
             </div>
             <div className="languageAndProfile">
