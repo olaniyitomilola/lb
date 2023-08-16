@@ -284,6 +284,7 @@
   height: 100vh;
   position: relative;
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   
 
@@ -366,7 +367,7 @@
   height: 2.5rem;
   width: auto;
 }
-.courseDashBoard, .messagesDashboard{
+.courseDashBoard{
   padding: 3rem;
   width: 100%;
   flex: 1;
@@ -379,6 +380,20 @@
 
   
 }
+.messagesDashboard {
+  padding: 3rem;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 3rem;
+
+
+}
+
 .coursesPanel{
   flex: 2 1;
   display: flex;
@@ -586,7 +601,151 @@
 .react-calendar__month-view__weekdays__weekday {
   margin-bottom: 1.5rem;
 }
+.messageContactSelector{
+  width: clamp(300px, 50%, 400px);
+  border-right: 1px solid #ededed;
+  padding-right: 1rem;
+  overflow: hidden;
+}
+.messageContactSelector h1{
+  font-size: 1.7rem;
+  
+}
+.conversationElement{
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  color: #fff;
+  gap: 2rem;
+  padding: 1rem;
+  background-color: #07a287;
+}
+.groupImg{
+  position: relative;
+  padding: 1rem;
+  background-color: #f08d19;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+.groupNameAndLastMessage{
+  height: 80px;
+}
+.groupImg::after{
+  content: "";
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  background-color: white;
+  border: 3px solid #4e73f8;
+  border-radius: 50%;
+  right: -3px;
+  bottom: 0px;
+}
+.groupLastMessage{
+  color: #f1f2f3;
+  font-weight: 100;
+  line-height: 24px;
+  font-size: 0.9rem;
+}
+.chatInterface{
+  flex: 1 1 0;
+  border: 1px solid #ededed;
+  border-radius: 8px;
+  position: relative;
+  
+  
+  
+}
+.chatInterfaceHead{
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #ededed;
+  
+}
+.sendMessageInterface{
+  position: absolute;
+  
+  
+  left: 0px;
+  bottom: 0px;
+  padding: 0rem 0rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  
+}
 
+.sendMessageInterface button{
+  color: white;
+  background-color: #f08d19;
+  border: none;
+  width: 80px;
+  height: 40px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.sendMessageInterface input{
+  flex: 1;
+  border: 1px solid #ededed;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  padding: 0.5rem;
+}
+.messagesPortal{
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  
+  padding: 2rem 2rem;
+  
+  
+  
+}
+.eachMessage{
+  position: relative;
+  padding: 1rem;
+  width: 70%;
+  border: 1px solid #ededed;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.eachMessage::after{
+  content: "";
+  height: 20px;
+  width: 20px;
+  background-color: #ededed;
+  position: absolute;
+  left: -10px;
+  bottom: -10;
+  border-radius: 0px 0px 60px 0px;
+  transform: rotate(90deg);
+  z-index: -1;
+
+}
+.messagesPortal .eachMessage.sender{
+  align-self: flex-end;
+  border: 1px solid #07a287;
+}
+.messagesPortal .eachMessage.sender::after {
+  background-color: #07a287;
+}
+.senderName{
+  font-family: 1.1rem;
+  color: #5a6474;
+  color: #07a287;
+}
+.senderMess{
+  color: #757d8a;
+}
 @media screen and (max-width: 1000px){
   .rightHeroPage{
     display: none;
