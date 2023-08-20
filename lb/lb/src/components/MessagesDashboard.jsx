@@ -134,7 +134,7 @@ function SendMessageInterface(){
 
 function EachMessage(props){
     return(
-        <div className= {props.user_id == userId? "eachMessage sender" : "eachMessage"}>
+        <div className= {props.user_id === userId? "eachMessage sender" : "eachMessage"}>
             <div className="senderName">{props.user_id === userId? "": props.name}</div>
             <div className="senderMess">{props.text}</div>
         </div>

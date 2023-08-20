@@ -6,6 +6,7 @@
   font-size: 14px;
   margin: 0;
   font-weight: 400;
+  scroll-behavior: smooth;
 }
 #root{
   width: 100%;
@@ -13,7 +14,137 @@
   flex-direction: column;
   align-items: center;
 }
+.courseLessonDashboard{
+  width: 100%;
+  height: 100%;
+  padding: 3rem ;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  
+}
+.courseBannerAndProgress{
+  width: 100%;
+   display: flex;
+  flex-direction: row;
+  
 
+}
+.courseBanner{
+  flex: 3;
+ 
+}
+.courseContentAndCourseLessons{
+  flex: 1;
+  min-height: 600px;
+  display: flex;
+  flex-direction: row;
+  
+  
+  
+  
+}
+.courseContent{
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+
+  
+}
+.courseContent .courseTitle{
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #151414;
+}
+.courseContent .courseDescription{
+  font-size: 0.95rem;
+  color: #676664;
+  text-align: justify;
+
+}
+.courseLessons{
+  flex: 1;
+}
+.courseAssessment{
+  
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin-top: 8%;
+}
+.courseQuestion{
+  font-size: 2rem;
+  color: #151414;
+  margin-bottom: 2rem;
+}
+.courseOptions{
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+
+}
+.courseOptions button{
+  padding: 12px 32px;
+  width: 15rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: solid 1px #ededed;
+  background-color: transparent;
+  cursor: pointer;
+  transition: background-color 200ms;
+  
+}
+
+.courseOptions button:hover {
+  background-color: #4fba6f;
+  color: white;
+  font-weight: 700;
+
+}
+.courseOptions button.clicked{
+  background-color: #f08d19;
+    color: white;
+    font-weight: 700;
+}
+
+.courseProgress{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+button.submitBtn{
+  margin-top: 2rem;
+  padding: 12px 32px;
+    width: 15rem;
+    height: 4rem;
+    justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      border: solid 1px #ededed;
+      display: flex;
+}
+button.submitBtn.selected {
+  background-color: #f08d19;
+  font-weight: 700;
+  color: white;
+}
+
+button.submitBtn.selected#correct {
+ background-color: #07a287;
+}
+
+button.submitBtn.selected#incorrect {
+  background-color: red;
+}
 .topNav{
   padding: 1rem 3rem;
   border-bottom: solid 1px #ededed;
@@ -453,6 +584,16 @@
   width: 100%;
   height: 120px;
   border-radius: 8px;
+}
+
+.courseBanner{
+  background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    border-radius: 8px;
+  
+    
+    height: 120px;
 }
 .courseCard h2{
   font-size: 1.2rem;
