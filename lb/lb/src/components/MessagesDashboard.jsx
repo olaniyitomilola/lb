@@ -1,69 +1,9 @@
 
+import { useEffect, useRef, useState } from "react"
+//get user ID
 var userId = "323E690E-44B9-DF47-5941-4D7BC3B5C814"
-export default function MessagesDashboard(props){
-    return(
-        <div className="messagesDashboard">
-            <MessageContactSelector/>
-            <ChatInterface/>
-        </div>
-    )
-}
 
-function MessageContactSelector(){
-    return(
-        <div className="messageContactSelector">
-            <h1>Messages</h1>
-            <ConversationElement language={"German"} level ="Beginner" lastMessage ={"It is a big honor to be part of this group, I really appreciate all the effort"}/>
-
-        </div>
-    )
-}
-
-function ConversationElement(props){
-    return(
-        <div className="conversationElement">
-            <div className="groupImg">{props.language[0]+props.level[0]}</div>
-            <div className="groupNameAndLastMessage">
-                <div className="groupName">{props.language + " " + props.level + "s"}</div>
-                <div className="groupLastMessage">
-                    {props.lastMessage.length > 20? props.lastMessage.substring(0,17) + "..." : props.lastMessage}
-                </div>
-            </div>
-        </div>
-    )
-}
-
-function ChatInterface(props){
-    return(
-        <div className="chatInterface">
-            <ChatInterfaceHead/>
-
-            <SendMessageInterface/>
-
-        </div>
-    )
-}
-
-function ChatInterfaceHead(props){
-    return(
-        <>
-            <div className="chatInterfaceHead">
-                French Beginners
-            </div>
-            <div className="messagesPortal">
-                {messages.map((user)=>
-                    <EachMessage name = {user.name} user_id = {user.user_id} text = {user.text}/>
-                )}
-            </div>
-        
-        </>
-       
-
-    
-    )
-}
-
-var messages = [
+var message = [
 	{
 		"name": "Cara Casey",
 		"text": "vel est tempor bibendum. Donec felis orci, adipiscing non, luctus",
@@ -121,12 +61,142 @@ var messages = [
 	}
 ]
 
-
-function SendMessageInterface(){
+export default function MessagesDashboard(props){
     return(
+        <div className="messagesDashboard">
+            <MessageContactSelector/>
+            <ChatInterface message = {message}/>
+        </div>
+    )
+}
+
+function MessageContactSelector(props){
+    return(
+        <div className="messageContactSelector">
+            <h1>Messages</h1>
+            <ConversationElement language={"German"} level ="Beginner" lastMessage ={"It is a big honor to be part of this group, I really appreciate all the effort"}/>
+
+        </div>
+    )
+}
+
+function ConversationElement(props){
+    return(
+        <div className="conversationElement">
+            <div className="groupImg">{props.language[0]+props.level[0]}</div>
+            <div className="groupNameAndLastMessage">
+                <div className="groupName">{props.language + " " + props.level + "s"}</div>
+                <div className="groupLastMessage">
+                    {props.lastMessage.length > 20? props.lastMessage.substring(0,17) + "..." : props.lastMessage}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+function ChatInterface(props){
+	const[messages, sendMessage] = useState(props.message)
+	const [newMessage, setNewMessage] = useState("");
+
+	const chatMessagesRef = useRef(null);
+
+	const scrollToBottom =()=>{
+		chatMessagesRef.current?.scrollIntoView({behavior : "smooth"})
+	}
+	function send() {
+
+		if(newMessage.trim()){
+			let msg = {}
+			msg.user_id = userId;
+			msg.name = "Ginger Carr";
+			msg.text = newMessage
+
+			let AllMess = [...messages,msg];
+		
+
+			sendMessage(AllMess)
+			setNewMessage("");
+			scrollToBottom()
+		}
+		
+	}
+	function handleTyping(e){
+		setNewMessage(e.target.value)
+	}
+
+    return(
+        <div className ="chatInterface">
+            <ChatInterfaceHead scrollToBottom = {scrollToBottom} messages = {messages}/>
+
+            <SendMessageInterface chatMessagesRef={chatMessagesRef} scrollToBottom={scrollToBottom} message = {newMessage} handleTyping = {handleTyping} sendMessage = {send}/>
+
+        </div>
+    )
+}
+
+function ChatInterfaceHead(props){
+
+	//set scroll to botton
+	
+
+	useEffect(()=>{
+		props.scrollToBottom();
+	},[])
+
+
+    return(
+        <>
+            <div className="chatInterfaceHead">
+                French Beginners
+            </div>
+            <div className="messagesPortal">
+				<div className="chatMessages">
+					 {props.messages.map((user)=>
+                    <EachMessage name = {user.name} user_id = {user.user_id} text = {user.text}/>
+                	)}
+				</div>
+				<div ref={props.chatMessagesRef} className="dummy"></div>
+               
+            </div>
+        
+        </>
+       
+
+    
+    )
+}
+
+
+
+
+function SendMessageInterface(props){
+
+	
+	let input = document.querySelector('.sendMessageInterface input');
+	//keydown for enter
+    return(
+		
         <div className="sendMessageInterface">
-            <input type="text" name="message" id="messageSending" />
-            <button>Send</button>
+            <input  value={props.message} placeholder="type message here" 
+			onChange={props.handleTyping} 
+			type="text" name="message" id="messageSending"
+			onKeyDown={(e)=>{
+				if(e.key === "Enter"){
+					props.sendMessage(message)
+					
+					
+				}
+			}}
+			/>
+            {props.message?<button 
+			onClick={()=>{
+				props.sendMessage(message)
+				
+				input.value = "";
+			}}
+			
+			
+			>Send</button> : ""}
         </div>
     )
 }
@@ -134,7 +204,7 @@ function SendMessageInterface(){
 
 function EachMessage(props){
     return(
-        <div className= {props.user_id === userId? "eachMessage sender" : "eachMessage"}>
+        <div className= {props.user_id === userId? "eachMessage sender" : "eachMessage receiver"}>
             <div className="senderName">{props.user_id === userId? "": props.name}</div>
             <div className="senderMess">{props.text}</div>
         </div>

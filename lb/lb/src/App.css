@@ -515,7 +515,7 @@ button.submitBtn.selected#incorrect {
   padding: 3rem;
   width: 100%;
   flex: 1;
-  min-height: 0;
+  overflow: hidden;
   
   display: flex;
   flex-direction: row;
@@ -743,10 +743,9 @@ button.submitBtn.selected#incorrect {
   margin-bottom: 1.5rem;
 }
 .messageContactSelector{
-  width: clamp(300px, 50%, 400px);
+  width: clamp(100px, 100%, 400px);
   border-right: 1px solid #ededed;
   padding-right: 1rem;
-  overflow: hidden;
 }
 .messageContactSelector h1{
   font-size: 1.7rem;
@@ -793,7 +792,7 @@ button.submitBtn.selected#incorrect {
   font-size: 0.9rem;
 }
 .chatInterface{
-  flex: 1 1 0;
+  flex: 1 1 360px;
   border: 1px solid #ededed;
   border-radius: 8px;
   position: relative;
@@ -812,7 +811,6 @@ button.submitBtn.selected#incorrect {
 }
 .sendMessageInterface{
   position: absolute;
-  
   
   left: 0px;
   bottom: 0px;
@@ -833,22 +831,33 @@ button.submitBtn.selected#incorrect {
   border-bottom-right-radius: 8px;
   cursor: pointer;
   padding: 0.5rem;
+  
+  
 }
 .sendMessageInterface input{
   flex: 1;
-  border: 1px solid #ededed;
+  border: 3px solid #ededed;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
   padding: 0.5rem;
+  outline: none;
 }
 .messagesPortal{
+  overflow: auto;
+  
+}
+.messagesPortal::-webkit-scrollbar{
+  display: none;
+}
+.chatMessages{
+  width: 100%;
   display: flex;
-  gap: 1rem;
-  flex-direction: column;
-  
-  padding: 2rem 2rem;
-  
-  
+    gap: 1rem;
+    flex-direction: column;
+    max-height: 70vh;
+    padding: 2rem 2rem;
+    padding-bottom: 2rem;
+    
   
 }
 .eachMessage{
@@ -857,9 +866,8 @@ button.submitBtn.selected#incorrect {
   width: 70%;
   border: 1px solid #ededed;
   border-radius: 8px;
-  overflow: hidden;
 }
-.eachMessage::after{
+.eachMessage.receiver::after{
   content: "";
   height: 20px;
   width: 20px;
@@ -870,7 +878,19 @@ button.submitBtn.selected#incorrect {
   border-radius: 0px 0px 60px 0px;
   transform: rotate(90deg);
   z-index: -1;
+}
 
+.eachMessage.sender::after {
+  content: "";
+  height: 20px;
+  width: 20px;
+  background-color: #07a287;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  border-radius: 0px 0px 60px 0px;
+  transform: rotate(270deg);
+  z-index: -1;
 }
 .messagesPortal .eachMessage.sender{
   align-self: flex-end;
@@ -900,4 +920,10 @@ button.submitBtn.selected#incorrect {
     .calender_call{
       display: none;
     }
+}
+
+@media screen and (max-width: 760px) {
+  .messageContactSelector{
+    display: none;
+  }
 }
