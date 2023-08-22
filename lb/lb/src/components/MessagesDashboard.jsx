@@ -1,9 +1,7 @@
 
 import { useEffect, useRef, useState } from "react"
-//get user ID
-var userId = "323E690E-44B9-DF47-5941-4D7BC3B5C814"
 
-var message = [
+var bigmessage = [
 	{
 		"name": "Cara Casey",
 		"text": "vel est tempor bibendum. Donec felis orci, adipiscing non, luctus",
@@ -61,11 +59,36 @@ var message = [
 	}
 ]
 
+
+//get user ID
+var userId = "323E690E-44B9-DF47-5941-4D7BC3B5C814"
+
 export default function MessagesDashboard(props){
+
+var room = {
+	level : "Beginner",
+	language : "French",
+
+}
+
+const[messages,setMessages] = useState([])
+
+useEffect(()=>{
+	setMessages(bigmessage)
+},[])
+
+function updateMessage(latestMsg){
+	setMessages(latestMsg)
+}
+
+
     return(
         <div className="messagesDashboard">
-            <MessageContactSelector/>
-            <ChatInterface message = {message}/>
+			{messages.length?<>
+			<MessageContactSelector lastMessage = {messages[messages.length - 1].text} room ={room}/>
+            <ChatInterface  sendMessage = {updateMessage} message = {messages}/>
+			</>
+             : "Loading"}
         </div>
     )
 }
@@ -74,7 +97,7 @@ function MessageContactSelector(props){
     return(
         <div className="messageContactSelector">
             <h1>Messages</h1>
-            <ConversationElement language={"German"} level ="Beginner" lastMessage ={"It is a big honor to be part of this group, I really appreciate all the effort"}/>
+            <ConversationElement language={props.room.language} level = {props.room.level} lastMessage = {props.lastMessage}/>
 
         </div>
     )
@@ -95,14 +118,7 @@ function ConversationElement(props){
 }
 
 function ChatInterface(props){
-	const[messages, sendMessage] = useState(props.message)
 	const [newMessage, setNewMessage] = useState("");
-
-	const chatMessagesRef = useRef(null);
-
-	const scrollToBottom =()=>{
-		chatMessagesRef.current?.scrollIntoView({behavior : "smooth"})
-	}
 	function send() {
 
 		if(newMessage.trim()){
@@ -110,13 +126,12 @@ function ChatInterface(props){
 			msg.user_id = userId;
 			msg.name = "Ginger Carr";
 			msg.text = newMessage
-
-			let AllMess = [...messages,msg];
-		
-
-			sendMessage(AllMess)
+			//update Message too
+		//	bigmessage.push(msg);
+			bigmessage.push(msg)
+			props.sendMessage([...bigmessage])
 			setNewMessage("");
-			scrollToBottom()
+			
 		}
 		
 	}
@@ -126,9 +141,9 @@ function ChatInterface(props){
 
     return(
         <div className ="chatInterface">
-            <ChatInterfaceHead scrollToBottom = {scrollToBottom} messages = {messages}/>
+            <ChatInterfaceHead  messages = {props.message}/>
 
-            <SendMessageInterface chatMessagesRef={chatMessagesRef} scrollToBottom={scrollToBottom} message = {newMessage} handleTyping = {handleTyping} sendMessage = {send}/>
+            <SendMessageInterface  message = {newMessage} handleTyping = {handleTyping} sendMessage = {send}/>
 
         </div>
     )
@@ -136,11 +151,15 @@ function ChatInterface(props){
 
 function ChatInterfaceHead(props){
 
-	//set scroll to botton
+	const chatMessagesRef = useRef(null);
+
+	const scrollToBottom =()=>{
+		chatMessagesRef.current?.scrollIntoView({behavior : "smooth"})
+	}
 	
 
 	useEffect(()=>{
-		props.scrollToBottom();
+		scrollToBottom();
 	},[])
 
 
@@ -155,14 +174,12 @@ function ChatInterfaceHead(props){
                     <EachMessage name = {user.name} user_id = {user.user_id} text = {user.text}/>
                 	)}
 				</div>
-				<div ref={props.chatMessagesRef} className="dummy"></div>
+				<div ref={chatMessagesRef} className="dummy"></div>
                
             </div>
         
         </>
        
-
-    
     )
 }
 
@@ -182,7 +199,7 @@ function SendMessageInterface(props){
 			type="text" name="message" id="messageSending"
 			onKeyDown={(e)=>{
 				if(e.key === "Enter"){
-					props.sendMessage(message)
+					props.sendMessage(props.message)
 					
 					
 				}
@@ -190,7 +207,7 @@ function SendMessageInterface(props){
 			/>
             {props.message?<button 
 			onClick={()=>{
-				props.sendMessage(message)
+				props.sendMessage(props.message)
 				
 				input.value = "";
 			}}

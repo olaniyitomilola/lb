@@ -9,13 +9,13 @@ export default function Dashboard (props){
     const Person = {
     firstName : "Vincent",
     lastName : "Sacrifice",
-    language : "French",
-    level: "Beginner"
+    language : "German",
+    level: "Expert"
     }
     return(
         <div className="dashboard">
             <TopNav activeNav = {props.activeNav} handleActiveNav = {props.handleActiveNav} Person={Person}/>
-            {props.activeNav === "courses"? <CourseLessonDashboard handleActiveNav={props.handleActiveNav} Person={Person}/> : <MessagesDashboard/>}
+            {props.activeNav === "courses"? <CourseDashBoard Person = {Person}/> : <MessagesDashboard/>}
         </div>
     )
 }
