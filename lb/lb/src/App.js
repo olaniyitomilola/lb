@@ -11,7 +11,7 @@ function App() {
       level: "Beginner"
   }
 
-  const [isLoggedIn,setLoggedIn] = useState(true)
+  const [isLoggedIn,setLoggedIn] = useState(false)
 
    const [activeNav, setActiveNav] = useState('courses')
 

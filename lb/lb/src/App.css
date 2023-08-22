@@ -356,7 +356,7 @@ button.submitBtn.selected#incorrect {
 .signInForm input[type="button"]{
   color: #fff;
   background-color:#f08d19;
-  margin-top: 3rem;
+  margin-top: 1rem;
   cursor: pointer;
 }
 .signInForm label{
@@ -898,6 +898,18 @@ button.submitBtn.selected#incorrect {
 }
 .messagesPortal .eachMessage.sender::after {
   background-color: #07a287;
+}
+.error{
+  width: 100%;
+  height: 20px;
+  margin-top: 1rem;
+  color: white;
+  padding: 0rem 1rem;
+  transition: all 200ms;
+
+}
+.error.active{
+    background-color: lightcoral;
 }
 .senderName{
   font-family: 1.1rem;
