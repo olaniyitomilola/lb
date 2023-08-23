@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { Post,Get } from "../services/functions";
+import { setAccessToken } from "../services/tokenService";
+import { Loader } from "./Loader";
 
 //regex email pattern
 const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -12,6 +14,8 @@ export  function SignIn(props){
     const[email,setEmail] = useState("");
     const[password,setPassword] = useState("")
     const[error,setError] = useState("")
+    
+
 
     const handleTypingEmail = (e)=>{
         setEmail(e.target.value)
@@ -37,13 +41,40 @@ export  function SignIn(props){
             return
         }
 
-        const req = await Post("http://localhost:3001/user/login", {email,password});
-
-        if(!req.success){
-            setError(req.message)
-        }else{
-            alert('in')
+        let body = {
+            email : email,
+            password : password
         }
+
+        const req = await Post("/user/login", body);
+
+        if(req.success){
+            setAccessToken(req.token)
+            try {
+                const details = await Get('/');
+                if(details.success){
+                    props.setLoading(true)
+                    props.setLoggedIn(true)
+                    props.setUserDetails(details.details)
+                    props.setUserCourses(details.courses)
+                    props.setLoading(false)
+                    
+                }
+                
+                
+            } catch (error) {
+                console.log(error)
+            }
+            
+            
+            
+        }
+        else{
+            //setError(req.message)
+            setError(req.message.response.data.message);
+        }
+
+        
     
 
     }

@@ -7,7 +7,6 @@ const frenchFlag = require('../assets/flags/french.png');
 export default function  LoggedInNavAdd(props){
 
     
-    const{firstName,lastName,language,level} = props.Person;
     return(
         <div className="loggedInNavAdd">
             <div className="courseAndMessageBtn">
@@ -17,16 +16,16 @@ export default function  LoggedInNavAdd(props){
             </div>
             <div className="languageAndProfile">
                 <div id="language">
-                    <img id="navFlag" src={language === 'French'? frenchFlag : germanFlag} alt={language} srcset="" />
-                    <div>{language}</div>
+                    <img id="navFlag" src={props.Person.language === 'French'? frenchFlag : germanFlag} alt={props.Person.language} srcset="" />
+                    <div>{props.Person.language}</div>
                 </div>
                 <div id="profile">
                     <div id="img">
 
                     </div>
                     <div className="nameAndLevel">
-                        <div id="name">{firstName + " " + lastName }</div>
-                        <div id="level">{level}</div>
+                        <div id="name">{props.Person.first_name + " " + props.Person.last_name }</div>
+                        <div id="level">{props.Person.level}</div>
                     </div>
                 </div>
             </div>

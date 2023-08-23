@@ -8,7 +8,7 @@ import ExpertiseSelection from './ExpertiseSelection';
 import { CreateUserObject, Post } from '../services/functions';
 
 
-export default function IndexPage() {
+export default function IndexPage(props) {
     const[isIndexPage, setIndexPage] = useState('hero')
     const [firstName,setFirstName] = useState("");
     const [lastName,setLastName] = useState("");
@@ -18,9 +18,6 @@ export default function IndexPage() {
     const[regStage, setRegState] = useState('signup')
     const [language,setLanguage]= useState('')
     const [expertise,setExpertise] = useState('')
-    
-
-
 
     //to track the stage of registration
     
@@ -35,7 +32,7 @@ export default function IndexPage() {
         if(firstName,lastName,email,password,cpassword,language,expertise){
             const body = CreateUserObject(firstName,lastName,email,password,language,expertise)
 
-            const req = await Post('http://localhost:3001/user/register',body);
+            const req = await Post('/user/register',body);
             console.log(req)
             if(req.success){
                 alert('account registered')
@@ -46,14 +43,17 @@ export default function IndexPage() {
     }
     return (
 
-    <>
-        {isIndexPage === "hero"?
-        <>
-            <TopNav handleIndex= {handleIndex} isLoggedIn = {true}/>
-            <div className='herobody'><HeroPage handleIndex = {handleIndex}/></div>
-        </> :  isIndexPage === "signin"?<div className='indexPage'><SignIn handleIndex = {handleIndex}/></div> : regStage ==="signup" ? <div className='indexPage'><SignUp  firstName ={firstName} setFirstName={setFirstName} lastName = {lastName} setLastName = {setLastName} email ={email} setEmail = {setEmail} password ={password} setPassword = {setPassword} cpassword = {cpassword} setCPassword = {setCPassword}  handleRegState = {handleRegState} handleIndex = {handleIndex}/></div> :!language?<LanguageSelection setLanguage = {setLanguage}/> : <ExpertiseSelection handleAccountReg ={handleAccountReg} language={language}/>
-    }
-    </>
+            <>
+                {isIndexPage === "hero"?
+                <>
+                    <TopNav handleIndex= {handleIndex} isLoggedIn = {props.isLoggedIn}/>
+                    <div className='herobody'><HeroPage handleIndex = {handleIndex}/></div>
+                </> :
+                isIndexPage === "signin"?
+                <div className='indexPage'><SignIn setUserDetails = {props.setUserDetails} setUserCourses = {props.setUserCourses} setLoading = {props.setLoading} setLoggedIn = {props.setLoggedIn} handleIndex = {handleIndex}/></div> : 
+                regStage ==="signup" ? <div className='indexPage'><SignUp  firstName ={firstName} setFirstName={setFirstName} lastName = {lastName} setLastName = {setLastName} email ={email} setEmail = {setEmail} password ={password} setPassword = {setPassword} cpassword = {cpassword} setCPassword = {setCPassword}  handleRegState = {handleRegState} handleIndex = {handleIndex}/></div> :!language?<LanguageSelection setLanguage = {setLanguage}/> : <ExpertiseSelection handleAccountReg ={handleAccountReg} language={language}/>
+            }
+            </>
     
   );
 }

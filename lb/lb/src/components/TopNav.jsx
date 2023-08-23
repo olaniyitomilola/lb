@@ -6,7 +6,7 @@ export default function TopNav(props){
     return(
         <div className="topNav">
             <div className="logo">LanguageBuddy</div>
-            {props.isLoggedIn? <Buttons handleIndex = {props.handleIndex}/> :  <LoggedInNavAdd activeNav = {props.activeNav} handleActiveNav = {props.handleActiveNav} Person = {props.Person}/>}
+            {!props.isLoggedIn? <Buttons handleIndex = {props.handleIndex}/> :  <LoggedInNavAdd activeNav = {props.activeNav} handleActiveNav = {props.handleActiveNav} Person = {props.Person}/>}
         </div>
     )
 }

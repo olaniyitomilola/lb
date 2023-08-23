@@ -1,27 +1,80 @@
-import { useState } from 'react';
+import { useEffect, useState, CSSProperties } from 'react';
 import './App.css';
 import IndexPage from './components/Index';
 import Dashboard from './components/Dashboard';
+import { getAccessToken,removeAccessToken } from './services/tokenService';
+import { Loader } from './components/Loader';
+import { Get } from './services/functions';
+
+
 
 function App() {
-  const Person = {
-      firstName : "Vincent",
-      lastName : "Sacrifice",
-      language : "French",
-      level: "Beginner"
+  // const Person = {
+  //     firstName : "Vincent",
+  //     lastName : "Sacrifice",
+  //     language : "French",
+  //     level: "Beginner"
+  // }
+  const [isLoggedIn,setLoggedIn] = useState('')
+  const [loading,setLoading] = useState(true)
+  const [activeNav, setActiveNav] = useState('courses')
+  const [userData, setUserData] = useState ([])
+  const [userDetails,setUserDetails] = useState([]);
+  const [userCourses, setUserCourses] = useState([]);
+
+  
+
+  useEffect(()=>{
+
+    const checkLoggedin = async()=>{
+    
+    const token = getAccessToken()
+      if(!token){
+        setLoggedIn(false);
+        setLoading(false)
+      } else{
+        try {
+          const user = await Get('/');
+
+          if(user.success){
+              setUserDetails(user.details);
+              setUserCourses(user.courses);
+              setLoggedIn(true)
+              setLoading(false)
+          }else{
+            console.log(user.message)
+            removeAccessToken();
+            setLoading(false);
+            setLoggedIn(false);
+          }
+          
+        } catch (error) {
+          console.log(error)
+          removeAccessToken();
+          setLoading(false);
+          setLoggedIn(false);
+        }
+      }
+         
+        
+
+
   }
 
-  const [isLoggedIn,setLoggedIn] = useState(false)
+  checkLoggedin();
+     
+  },[])
 
-   const [activeNav, setActiveNav] = useState('courses')
-
-    function handleActiveNav(active){
+  function handleActiveNav(active){
         setActiveNav(active);
     }
   
   return (
     <div className="App">
-      {!isLoggedIn?<IndexPage isLoggedIn = {isLoggedIn}/> : <Dashboard Person = {Person} activeNav = {activeNav} handleActiveNav ={handleActiveNav}/>}
+
+      {loading? <Loader loading={loading}/>
+      
+      : isLoggedIn === false? <IndexPage setLoading = {setLoading} setLoggedIn = {setLoggedIn} isLoggedIn = {isLoggedIn}  setUserDetails={setUserDetails} setUserCourses={setUserCourses} /> : <Dashboard isLoggedIn = {isLoggedIn}  courses = {userCourses} Person = {userDetails} activeNav = {activeNav} handleActiveNav ={handleActiveNav}/>}
       
       
     </div>
