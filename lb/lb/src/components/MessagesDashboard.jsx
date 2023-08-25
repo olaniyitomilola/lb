@@ -1,135 +1,92 @@
 
 import { useEffect, useRef, useState } from "react"
-
-var bigmessage = [
-	{
-		"name": "Cara Casey",
-		"text": "vel est tempor bibendum. Donec felis orci, adipiscing non, luctus",
-		"user_id": "37DA29A1-C54D-E720-E984-6612366AABD8"
-	},
-	{
-		"name": "Lev Harding",
-		"text": "semper cursus. Integer mollis. Integer tincidunt aliquam arcu. Aliquam ultrices",
-		"user_id": "54BCE335-3271-A4FF-4014-4453D46D4FE9"
-	},
-	{
-		"name": "Valentine Carter",
-		"text": "Nunc quis arcu vel quam dignissim pharetra. Nam ac nulla.",
-		"user_id": "52464A06-2D92-9EF5-B737-EF3D41C6A7F6"
-	},
-	{
-		"name": "Glenna Wallace",
-		"text": "nibh vulputate mauris sagittis placerat. Cras dictum ultricies ligula. Nullam",
-		"user_id": "778C54AC-71C0-FDED-6B08-E222E24718DA"
-	},
-	{
-		"name": "Ginger Carr",
-		"text": "risus. Donec egestas. Aliquam nec enim. Nunc ut erat. Sed",
-		"user_id": "323E690E-44B9-DF47-5941-4D7BC3B5C814"
-	},
-	{
-		"name": "Ginger Carr",
-		"text": "risus. Donec egestas. Aliquam nec enim. Nunc ut erat. Sed",
-		"user_id": "323E690E-44B9-DF47-5941-4D7BC3B5C814"
-	},
-	{
-		"name": "Ginger Carr",
-		"text": "risus. Donec egestas. Aliquam nec enim. Nunc ut erat. Sed",
-		"user_id": "323E690E-44B9-DF47-5941-4D7BC3B5C814"
-	},
-	{
-		"name": "Lev Harding",
-		"text": "semper cursus. Integer mollis. Integer tincidunt aliquam arcu. Aliquam ultrices",
-		"user_id": "54BCE335-3271-A4FF-4014-4453D46D4FE9"
-	},
-	{
-		"name": "Valentine Carter",
-		"text": "Nunc quis arcu vel quam dignissim pharetra. Nam ac nulla.",
-		"user_id": "52464A06-2D92-9EF5-B737-EF3D41C6A7F6"
-	},
-	{
-		"name": "Glenna Wallace",
-		"text": "nibh vulputate mauris sagittis placerat. Cras dictum ultricies ligula. Nullam",
-		"user_id": "778C54AC-71C0-FDED-6B08-E222E24718DA"
-	},
-	{
-		"name": "Ginger Carr",
-		"text": "risus. Donec egestas. Aliquam nec enim. Nunc ut erat. Sed",
-		"user_id": "323E690E-44B9-DF47-5941-4D7BC3B5C814"
-	}
-]
+import ScrollToBottom from "react-scroll-to-bottom"
 
 
 //get user ID
-var userId = "323E690E-44B9-DF47-5941-4D7BC3B5C814"
+//var userId = "323E690E-44B9-DF47-5941-4D7BC3B5C814"
 
-export default function MessagesDashboard(props){
-
+export default function MessagesDashboard({ setChatMessages,chatMessages, Person, socket}){
 var room = {
-	level : "Beginner",
-	language : "French",
+	level : Person.level,
+	language : Person.language,
 
 }
+const lastRef = useRef(null);
 
-const[messages,setMessages] = useState([])
+	function handleMessage(data){
+		console.log(chatMessages.length)
+		setChatMessages((prevMessages) =>[...prevMessages,data])
+	}
+	 useEffect(()=>{
+		socket.on('recieve_messages', handleMessage)
 
-useEffect(()=>{
-	setMessages(bigmessage)
-},[])
+		return ()=> socket.off('recieve_messages',handleMessage)
+	},[socket,chatMessages])
+	useEffect(()=>{
+		lastRef.current?.scrollIntoView({behavior : 'smooth'})
 
-function updateMessage(latestMsg){
-	setMessages(latestMsg)
-}
+	},[chatMessages])
+
+
+	function updateMessage(latestMsg){
+		setChatMessages(latestMsg)
+	}
+
 
 
     return(
         <div className="messagesDashboard">
-			{messages.length?<>
-			<MessageContactSelector lastMessage = {messages[messages.length - 1].text} room ={room}/>
-            <ChatInterface  sendMessage = {updateMessage} message = {messages}/>
+			{chatMessages.length !== 0?<>
+				<MessageContactSelector lastMessage = {chatMessages[chatMessages.length - 1].text} room ={room}/>
+				<ChatInterface chatMessages={chatMessages} socket={socket} Person={Person}  sendMessage = {updateMessage} setChatMessages={setChatMessages} message = {chatMessages}/>
 			</>
              : "Loading"}
         </div>
     )
 }
 
-function MessageContactSelector(props){
+function MessageContactSelector({room, lastMessage}){
+
     return(
         <div className="messageContactSelector">
             <h1>Messages</h1>
-            <ConversationElement language={props.room.language} level = {props.room.level} lastMessage = {props.lastMessage}/>
+            <ConversationElement language={room.language} level = {room.level} lastMessage = {lastMessage}/>
 
         </div>
     )
 }
 
-function ConversationElement(props){
+function ConversationElement({language,level, lastMessage}){
     return(
         <div className="conversationElement">
-            <div className="groupImg">{props.language[0]+props.level[0]}</div>
+            <div className="groupImg">{language[0]+level[0]}</div>
             <div className="groupNameAndLastMessage">
-                <div className="groupName">{props.language + " " + props.level + "s"}</div>
+                <div className="groupName">{language + " " + level + "s"}</div>
                 <div className="groupLastMessage">
-                    {props.lastMessage.length > 20? props.lastMessage.substring(0,17) + "..." : props.lastMessage}
+                    {lastMessage.length > 20? lastMessage.substring(0,17) + "..." : lastMessage}
                 </div>
             </div>
         </div>
     )
 }
 
-function ChatInterface(props){
+function ChatInterface({  Person,message, chatMessages ,socket, setChatMessages}){
 	const [newMessage, setNewMessage] = useState("");
-	function send() {
+	
+	async function send() {
 
 		if(newMessage.trim()){
 			let msg = {}
-			msg.user_id = userId;
-			msg.name = "Ginger Carr";
+			msg.user_id = Person.id;
+			msg.name =  `${Person.first_name} ${Person.last_name}`;
 			msg.text = newMessage
-			//update Message too
-		//	bigmessage.push(msg);
-			bigmessage.push(msg)
-			props.sendMessage([...bigmessage])
+			// update Message too
+
+
+
+			// await socket.emit('send_message',msg);
+			await socket.emit('new_message', msg)
 			setNewMessage("");
 			
 		}
@@ -141,7 +98,7 @@ function ChatInterface(props){
 
     return(
         <div className ="chatInterface">
-            <ChatInterfaceHead  messages = {props.message}/>
+            <ChatInterfaceHead  Person={Person}  messages = {message}/>
 
             <SendMessageInterface  message = {newMessage} handleTyping = {handleTyping} sendMessage = {send}/>
 
@@ -149,34 +106,28 @@ function ChatInterface(props){
     )
 }
 
-function ChatInterfaceHead(props){
+function ChatInterfaceHead({messages, Person}){
 
-	const chatMessagesRef = useRef(null);
-
-	const scrollToBottom =()=>{
-		chatMessagesRef.current?.scrollIntoView({behavior : "smooth"})
-	}
 	
 
-	useEffect(()=>{
-		scrollToBottom();
-	},[])
+	
 
+	
 
     return(
         <>
             <div className="chatInterfaceHead">
-                French Beginners
+                {Person.language + " " + Person.level + "s"}
             </div>
             <div className="messagesPortal">
 				<div className="chatMessages">
-					 {props.messages.map((user)=>
-                    <EachMessage name = {user.name} user_id = {user.user_id} text = {user.text}/>
+					 {messages.map((user)=>
+                    <EachMessage Person={Person} name = {user.name} user_id = {user.user_id} text = {user.text}/>
                 	)}
 				</div>
-				<div ref={chatMessagesRef} className="dummy"></div>
-               
             </div>
+
+	
         
         </>
        
@@ -186,7 +137,7 @@ function ChatInterfaceHead(props){
 
 
 
-function SendMessageInterface(props){
+function SendMessageInterface({message, handleTyping, sendMessage}){
 
 	
 	let input = document.querySelector('.sendMessageInterface input');
@@ -194,20 +145,20 @@ function SendMessageInterface(props){
     return(
 		
         <div className="sendMessageInterface">
-            <input  value={props.message} placeholder="type message here" 
-			onChange={props.handleTyping} 
+            <input  value={message} placeholder="type message here" 
+			onChange={handleTyping} 
 			type="text" name="message" id="messageSending"
 			onKeyDown={(e)=>{
 				if(e.key === "Enter"){
-					props.sendMessage(props.message)
+					sendMessage(message)
 					
 					
 				}
 			}}
 			/>
-            {props.message?<button 
-			onClick={()=>{
-				props.sendMessage(props.message)
+            {message?<button 
+			onClick={async ()=>{
+				await sendMessage(message)
 				
 				input.value = "";
 			}}
@@ -219,11 +170,11 @@ function SendMessageInterface(props){
 }
 
 
-function EachMessage(props){
+function EachMessage({user_id, name, text, Person}){
     return(
-        <div className= {props.user_id === userId? "eachMessage sender" : "eachMessage receiver"}>
-            <div className="senderName">{props.user_id === userId? "": props.name}</div>
-            <div className="senderMess">{props.text}</div>
+        <div className= {user_id === Person.id? "eachMessage sender" : "eachMessage receiver"}>
+            <div className="senderName">{user_id === Person.id? "": name}</div>
+            <div className="senderMess">{text}</div>
         </div>
     )
 

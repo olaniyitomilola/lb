@@ -9,12 +9,7 @@ import { Get } from './services/functions';
 
 
 function App() {
-  // const Person = {
-  //     firstName : "Vincent",
-  //     lastName : "Sacrifice",
-  //     language : "French",
-  //     level: "Beginner"
-  // }
+  
   const [isLoggedIn,setLoggedIn] = useState('')
   const [loading,setLoading] = useState(true)
   const [activeNav, setActiveNav] = useState('courses')
@@ -28,12 +23,13 @@ function App() {
 
     const checkLoggedin = async()=>{
     
-    const token = getAccessToken()
+      const token = getAccessToken()
       if(!token){
         setLoggedIn(false);
         setLoading(false)
       } else{
         try {
+          console.log('getting details')
           const user = await Get('/');
 
           if(user.success){

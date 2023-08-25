@@ -1,26 +1,29 @@
 import { useEffect, useState } from "react"
 import Calendar from "react-calendar"
 
-export default function CourseDashBoard(props){
-    //TODO: Authentication token to handle this
-   
-
-  
-
-    
+export default function CourseDashBoard({chatMessages, setCourseId , setChatMessages ,handleActiveNav ,socket, courses, Person, }){
+    //TODO: Authentication token to handle this 
 
    
         const[date,setDate] = useState(new Date());
+        socket.emit('in_chat',Person.first_name)
+
+        const handleCourse = (id)=>{
+        setCourseId(id);
+
+          
+        }
+       
 
     return(
         <div className="courseDashBoard">
             <div className="coursesPanel">
-                <Greetings firstName = {props.Person.first_name}/>
+                <Greetings firstName = {Person.first_name}/>
                 <div className="recommendedCourses">
                     <h2>Recommended Courses</h2>
                     <div className="coursesContainer">
-                        {props.courses.map((course)=>
-                            <CourseCard key={course.id} img = {course.image_sources} introduction = {course.coursedescription} courseTitle = {course.coursetitle}/>
+                        {courses.map((course)=>
+                            <CourseCard id={course.id} handClick ={handleCourse} key={course.id} img = {course.image_sources} introduction = {course.coursedescription} courseTitle = {course.coursetitle}/>
                         )}
                     </div>
                     
@@ -30,8 +33,8 @@ export default function CourseDashBoard(props){
                 <div className="popularCourses">
                     <h2>Popular Courses</h2>
                     <div className="coursesContainer">
-                        {props.courses.map((course)=>
-                            <CourseCard key={course.id} img = {course.image_sources} introduction = {course.coursedescription} courseTitle = {course.coursetitle}/>
+                        {courses.map((course)=>
+                            <CourseCard id={course.id} handClick={()=> handleCourse(course.id)}  key={course.id} img = {course.image_sources} introduction = {course.coursedescription} courseTitle = {course.coursetitle}/>
                         )}
                     </div>
                     
@@ -44,45 +47,45 @@ export default function CourseDashBoard(props){
                     <Calendar showNeighboringMonth={false} value={date} onChange={setDate}/>
 
                 </div>
-                <CallToChat handleActiveNav= {props.handleActiveNav} Person = {props.Person}/>
+                <CallToChat handleActiveNav= {handleActiveNav} Person = {Person}/>
             </div>
         </div>
     )
 }
 
-function Greetings(props){
+function Greetings({firstName}){
     return(
         <div className="greetings">
-            <h1>Hello, {props.firstName}</h1>
+            <h1>Hello, {firstName}</h1>
             <p>What are you learning today</p>
             
         </div>
     )
 }
 
-function CourseCard(props){
+function CourseCard({img , handClick, courseTitle, introduction, id}){
     const backgroundStyle = {
         
-        backgroundImage: `url(${props.img})`
+        backgroundImage: `url(${img})`
     }
 
     return(
-        <div className="courseCard">
+        <div onClick={()=>handClick(id)} className="courseCard">
             
             <div  style={backgroundStyle} className="img"></div>
-            <h2>{props.courseTitle}</h2>
-            <p>{props.introduction}</p>
+            <h2>{courseTitle}</h2>
+            <p>{introduction}</p>
         </div>)
 }
 
-function CallToChat (props){
+function CallToChat ({handleActiveNav, Person}){
     return(
             <div className="callToChat">
                     <div className="blurEffect"></div>
                     <div id="conversationImg"><span></span><div></div><div></div><div></div></div>
                     <h2>Chit chat with other Buddies</h2>
-                    <h3>Chat with other {props.Person.level + "s"} like you about your course as you go</h3>
-                    <button onClick={()=>props.handleActiveNav('messages')}>Join Now</button>
+                    <h3>Chat with other {Person.level + "s"} like you about your course as you go</h3>
+                    <button onClick={()=>handleActiveNav('messages')}>Join Now</button>
 
             </div>
     )
