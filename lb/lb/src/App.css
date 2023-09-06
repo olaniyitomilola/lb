@@ -509,6 +509,11 @@ button.submitBtn.selected#incorrect {
   font-size: 0.8rem;
 }
 
+.nameAndLevel a{
+  text-decoration: none;
+  color: #f08d19;
+}
+
 #profile{
   display: flex;
   flex-direction: row;

@@ -61,6 +61,13 @@ function App() {
      
   },[])
 
+  function handleLogOut(){
+
+
+    removeAccessToken();
+    setLoggedIn(false);
+  }
+
   function handleActiveNav(active){
         setActiveNav(active);
     }
@@ -70,7 +77,7 @@ function App() {
 
       {loading? <Loader loading={loading}/>
       
-      : isLoggedIn === false? <IndexPage setLoading = {setLoading} setLoggedIn = {setLoggedIn} isLoggedIn = {isLoggedIn}  setUserDetails={setUserDetails} setUserCourses={setUserCourses} /> : <Dashboard isLoggedIn = {isLoggedIn}  courses = {userCourses} Person = {userDetails} activeNav = {activeNav} handleActiveNav ={handleActiveNav}/>}
+      : isLoggedIn === false? <IndexPage setLoading = {setLoading} setLoggedIn = {setLoggedIn} isLoggedIn = {isLoggedIn}  setUserDetails={setUserDetails} setUserCourses={setUserCourses} /> : <Dashboard handleLogOut={handleLogOut} isLoggedIn = {isLoggedIn}  courses = {userCourses} Person = {userDetails} activeNav = {activeNav} handleActiveNav ={handleActiveNav}/>}
       
       
     </div>

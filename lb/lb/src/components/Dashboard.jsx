@@ -5,7 +5,7 @@ import CourseLessonDashboard from "./CourseLessonsDashboard";
 import { useState } from "react";
 import { io } from "socket.io-client";
 
-export default function Dashboard ({activeNav, isLoggedIn, handleActiveNav, Person, courses}){
+export default function Dashboard ({activeNav, isLoggedIn, handleActiveNav, Person, courses, handleLogOut}){
     const socket = io.connect('http://localhost:3004');
     const [courseId, setCourseId] = useState('');
     const [chatMessages, setChatMessages] = useState([{
@@ -18,7 +18,7 @@ export default function Dashboard ({activeNav, isLoggedIn, handleActiveNav, Pers
     
     return(
         <div className="dashboard">
-            <TopNav isLoggedIn = {isLoggedIn} activeNav = {activeNav} handleActiveNav = {handleActiveNav} Person={Person}/>
+            <TopNav handleLogOut={handleLogOut} isLoggedIn = {isLoggedIn} activeNav = {activeNav} handleActiveNav = {handleActiveNav} Person={Person}/>
             {activeNav === "courses"?
             <>
             {!courseId? <CourseDashBoard chatMessages={chatMessages} setChatMessages={setChatMessages} socket ={socket} setCourseId ={setCourseId} courses = {courses} Person = {Person}/> : <CourseLessonDashboard goback = {setCourseId} courses = {courses.find((course)=>course.id === courseId)} courseId={courseId}/>}
