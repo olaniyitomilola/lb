@@ -14,15 +14,12 @@ var room = {
 }
 const lastRef = useRef(null);
 
-	function handleMessage(data){
-		console.log(chatMessages.length)
-		setChatMessages((prevMessages) =>[...prevMessages,data])
-	}
 	 useEffect(()=>{
-		socket.on('recieve_messages', handleMessage)
+		socket.on('recieve_messages', (data)=>{
+			setChatMessages([...chatMessages,data])
+		})
 
-		return ()=> socket.off('recieve_messages',handleMessage)
-	},[socket,chatMessages])
+	},[socket, chatMessages])
 	useEffect(()=>{
 		lastRef.current?.scrollIntoView({behavior : 'smooth'})
 
@@ -81,10 +78,8 @@ function ChatInterface({  Person,message, chatMessages ,socket, setChatMessages}
 			msg.user_id = Person.id;
 			msg.name =  `${Person.first_name} ${Person.last_name}`;
 			msg.text = newMessage
+			msg.room = (Person.language + Person.level).toLowerCase();
 			// update Message too
-
-
-
 			// await socket.emit('send_message',msg);
 			await socket.emit('new_message', msg)
 			setNewMessage("");
