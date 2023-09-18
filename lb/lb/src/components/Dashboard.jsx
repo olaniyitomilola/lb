@@ -11,11 +11,16 @@ export default function Dashboard ({activeNav, isLoggedIn, handleActiveNav, Pers
     const [chatMessages, setChatMessages] = useState("");
 
     useEffect(()=>{
-        socket.on('userMessages',(data)=>{
+
+        if(!chatMessages){
+              socket.on('userMessages',(data)=>{
                         console.log(data)
 
-            setChatMessages(data)
+              setChatMessages(data)
         })
+
+        }
+      
     },[socket])
     
     return(

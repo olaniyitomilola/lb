@@ -819,6 +819,10 @@ button.submitBtn.selected#incorrect {
   right: -3px;
   bottom: 0px;
 }
+.lastdd{
+  height: 20px;
+  border: solid 1px #ededed;
+}
 .groupLastMessage{
   color: #f1f2f3;
   font-weight: 100;
@@ -830,6 +834,9 @@ button.submitBtn.selected#incorrect {
   border: 1px solid #ededed;
   border-radius: 8px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   
   
   
@@ -845,7 +852,6 @@ button.submitBtn.selected#incorrect {
 }
 .sendMessageInterface{
   position: absolute;
-  
   left: 0px;
   bottom: 0px;
   padding: 0rem 0rem;
@@ -878,6 +884,7 @@ button.submitBtn.selected#incorrect {
 }
 .messagesPortal{
   overflow: auto;
+  flex: 1;
   
 }
 .messagesPortal::-webkit-scrollbar{
@@ -886,11 +893,10 @@ button.submitBtn.selected#incorrect {
 .chatMessages{
   width: 100%;
   display: flex;
-    gap: 1rem;
-    flex-direction: column;
-    max-height: 70vh;
-    padding: 2rem 2rem;
-    padding-bottom: 2rem;
+  gap: 1rem;
+  flex-direction: column;
+  min-height: 400px;
+  padding: 2rem 2rem;
     
   
 }

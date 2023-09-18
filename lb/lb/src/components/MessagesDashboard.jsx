@@ -9,22 +9,29 @@ var room = {
 	language : Person.language,
 
 }
-const lastRef = useRef(null);
+	const lastRef = useRef(null);
 
-	 useEffect(()=>{
+	function scrollToDown(){
+		if(lastRef.current){
+			lastRef.current.scrollIntoView({behavior: 'smooth'})
+		}
+	}
+
+	useEffect(()=>{
 		socket.on('recieve_messages', (data)=>{
 			setChatMessages([...chatMessages,data])
+
 		})
 
 	},[socket, chatMessages])
 	useEffect(()=>{
-		lastRef.current?.ScrollIntoView({behavior : 'smooth'})
-
+		scrollToDown()
 	},[chatMessages])
 
 
 	function updateMessage(latestMsg){
 		setChatMessages(latestMsg)
+
 	}
 
 
@@ -33,7 +40,7 @@ const lastRef = useRef(null);
         <div className="messagesDashboard">
 			{chatMessages?<>
 				<MessageContactSelector lastMessage = {chatMessages[chatMessages.length - 1].message} room ={room}/>
-				<ChatInterface chatMessages={chatMessages} socket={socket} Person={Person}  sendMessage = {updateMessage} setChatMessages={setChatMessages} message = {chatMessages}/>
+				<ChatInterface lastRef={lastRef} chatMessages={chatMessages} socket={socket} Person={Person}  sendMessage = {updateMessage} setChatMessages={setChatMessages} message = {chatMessages}/>
 			</>
              : "Loading"}
         </div>
@@ -58,14 +65,14 @@ function ConversationElement({language,level, lastMessage}){
             <div className="groupNameAndLastMessage">
                 <div className="groupName">{language + " " + level + "s"}</div>
                 <div className="groupLastMessage">
-                    {/* {lastMessage.length > 20? lastMessage.substring(0,17) + "..." : lastMessage} */}
+                    {lastMessage.length > 20? lastMessage.substring(0,17) + "..." : lastMessage}
                 </div>
             </div>
         </div>
     )
 }
 
-function ChatInterface({  Person,message, chatMessages ,socket, setChatMessages}){
+function ChatInterface({  Person,message, chatMessages ,socket, setChatMessages, lastRef}){
 	const [newMessage, setNewMessage] = useState("");
 	
 	async function send() {
@@ -79,8 +86,14 @@ function ChatInterface({  Person,message, chatMessages ,socket, setChatMessages}
 			msg.room = (Person.language + Person.level).toLowerCase();
 			// update Message too
 			// await socket.emit('send_message',msg);
-			await socket.emit('new_message', msg)
-			setNewMessage("");
+			try{
+				await socket.emit('new_message', msg)
+				setNewMessage("");
+			}catch(error){
+				console.log(`SOCKET ERROR: ${error}`)
+			}
+		
+			
 			
 		}
 		
@@ -91,21 +104,14 @@ function ChatInterface({  Person,message, chatMessages ,socket, setChatMessages}
 
     return(
         <div className ="chatInterface">
-			<ChatInterfaceHead  Person={Person}  messages = {message}/>
+			<ChatInterfaceHead lastRef={lastRef}  Person={Person}  messages = {message}/>
             <SendMessageInterface  message = {newMessage} handleTyping = {handleTyping} sendMessage = {send}/>
 
         </div>
     )
 }
 
-function ChatInterfaceHead({messages, Person}){
-
-	
-
-	
-
-	
-
+function ChatInterfaceHead({ lastRef, messages, Person}){
     return(
         <>
             <div className="chatInterfaceHead">
@@ -116,6 +122,8 @@ function ChatInterfaceHead({messages, Person}){
 					 {messages? messages.map((user)=>
                     <EachMessage Person={Person} first_name = {user.first_name} last_name = {user.last_name} user_id = {user.user_id} message = {user.message}/>
                 	) : ""}
+					<div ref={lastRef} className="lastdd"></div>
+
 				</div>
             </div>
 
