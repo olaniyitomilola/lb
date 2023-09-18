@@ -9,6 +9,7 @@ export default function Dashboard ({activeNav, isLoggedIn, handleActiveNav, Pers
     const socket = io.connect('http://localhost:3004');
     const [courseId, setCourseId] = useState('');
     const [chatMessages, setChatMessages] = useState("");
+    const [myRoom, setRoom] = useState ("");
 
     useEffect(()=>{
 
@@ -22,6 +23,15 @@ export default function Dashboard ({activeNav, isLoggedIn, handleActiveNav, Pers
         }
       
     },[socket])
+
+    useEffect(()=>{
+        if(!myRoom){
+            socket.emit('in_chat',Person)
+        }
+
+    },[socket])
+
+
     
     return(
         <div className="dashboard">

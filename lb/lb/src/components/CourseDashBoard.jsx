@@ -6,7 +6,6 @@ export default function CourseDashBoard({chatMessages, setCourseId , setChatMess
 
    
         const[date,setDate] = useState(new Date());
-        socket.emit('in_chat',Person)
 
         const handleCourse = (id)=>{
         setCourseId(id);
