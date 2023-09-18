@@ -80,8 +80,8 @@ export default function CourseLessonDashboard(props){
                             <button onClick={()=>props.goback('')} >Go Back</button>
                         </div>
                         <div className="courseProgress">
-
-                            The progress level guage here
+                            <div className="answerd"><span>{answeredQ.size}</span>/10</div>
+                        
 
                         </div>
                     </div>
@@ -95,10 +95,7 @@ export default function CourseLessonDashboard(props){
                                     {props.courses.coursedescription}
                                 </div>
                             </div>
-                            <CourseAssessment handleAnswer = {handleAnswer} selected={selected} setSelected = {setSelected} submission = {submission} setSubmission = {setSubmission} course = {activeCourse}/>
-
-                            
-
+                            <CourseAssessment answeredQ= {answeredQ} handleAnswer = {handleAnswer} selected={selected} setSelected = {setSelected} submission = {submission} setSubmission = {setSubmission} course = {activeCourse}/>
                         </div>
                         <div className="courseLessons">
                             <div className="lessonWrapper">
@@ -117,15 +114,22 @@ export default function CourseLessonDashboard(props){
 
 
 function CourseAssessment(props){
+
+    const[done,setDone] = useState(false); 
+
+    useEffect(()=>{
+        props.answeredQ.has(props.course.id)? setDone(true) : setDone(false)
+    },[props.answeredQ])
    const handleClick= (opt) =>{
         props.setSelected(opt)
    }
    const handleSubmission = async()=>{
-        if(props.selected === ""){
+        if(props.selected === "" || done){
             //do nothing
         }else{
             if(props.selected === props.course.correct_answer){
                 props.setSubmission("Correct")
+                setDone(true)
                 props.handleAnswer(props.course.id);
                 try {
                      let req = await Post(`/course/assessments/${props.course.id}`);
@@ -141,6 +145,10 @@ function CourseAssessment(props){
 
             }else{
                 props.setSubmission("Incorrect")
+
+                setTimeout(()=>{
+                    props.setSubmission("Submit")
+                },500)
             }
             props.setSelected("");
         }
@@ -160,7 +168,7 @@ function CourseAssessment(props){
             
             </div>
 
-            <button id={props.submission === "Correct"? "Correct!" : props.submission === "Incorrect"? "incorrect" : ""} onClick={()=>handleSubmission()} className={props.selected === ""? "submitBtn" : "submitBtn selected"} >{props.submission}</button>
+            <button id={props.submission === "Correct"? "correct" : props.submission === "Incorrect"? "incorrect" : ""} onClick={()=>handleSubmission()} className={props.selected === ""? "submitBtn" : "submitBtn selected"} >{props.submission}</button>
         </div>
     )
 }
@@ -171,7 +179,6 @@ function CourseLessons(props){
         <div onClick={()=>{
             props.setActiveCourse(props.course)
             props.setSubmission("Submit");
-
         
         } 
 

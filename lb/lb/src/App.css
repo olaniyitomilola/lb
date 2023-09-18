@@ -975,6 +975,15 @@ button.submitBtn.selected#incorrect {
   border-radius: 8px;
 
 }
+.answerd{
+  font-size: 2rem;
+  color: #f08d19;
+}
+
+.answerd span{
+  color: #07a287;
+  font-size: 2rem;
+}
 
 .eachLesson.answered{
   background-color: #07a287;

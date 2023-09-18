@@ -2,19 +2,21 @@ import TopNav from "./TopNav";
 import CourseDashBoard from "./CourseDashBoard";
 import MessagesDashboard from "./MessagesDashboard";
 import CourseLessonDashboard from "./CourseLessonsDashboard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
 export default function Dashboard ({activeNav, isLoggedIn, handleActiveNav, Person, courses, handleLogOut}){
     const socket = io.connect('http://localhost:3004');
     const [courseId, setCourseId] = useState('');
-    const [chatMessages, setChatMessages] = useState([{
-		"name": "Cara Casey",
-		"text": "vel est tempor bibendum. Donec felis orci, adipiscing non, luctus",
-		"user_id": "37DA29A1-C54D-E720-E984-6612366AABD8"
-	}]);
+    const [chatMessages, setChatMessages] = useState("");
 
+    useEffect(()=>{
+        socket.on('userMessages',(data)=>{
+                        console.log(data)
 
+            setChatMessages(data)
+        })
+    },[socket])
     
     return(
         <div className="dashboard">

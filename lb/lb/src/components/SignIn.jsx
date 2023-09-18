@@ -57,17 +57,11 @@ export  function SignIn(props){
                     props.setLoggedIn(true)
                     props.setUserDetails(details.details)
                     props.setUserCourses(details.courses)
-                    props.setLoading(false)
-                    
+                    props.setLoading(false)   
                 }
-                
-                
             } catch (error) {
                 console.log(error)
-            }
-            
-            
-            
+            }     
         }
         else{
             //setError(req.message)
@@ -131,13 +125,11 @@ export  function SignUp(props){
             setError("Password required")
             return
         } 
-
         //validate name input
         if(!namePattern.test(props.firstName) || !namePattern.test(props.lastName)){
             setError("Invalid name format")
             return;
         }
-        
         if(props.password !== props.cpassword){
             setError("Password should be the same")
             return
@@ -175,9 +167,9 @@ export  function SignUp(props){
                 <label htmlFor="firstName">First Name</label>
                 <input onChange={(e)=>handleTyping(e,props.setFirstName)} type="text" name="firstName" id="firstName" value={props.firstName} />
                 <label htmlFor="lastName">Last Name</label>
-                <input value = {props.lastName} onChange={(e)=>handleTyping(e,props.setLastName)} type="text" name="lastName" id="lastName" value={props.lastName} />
+                <input value = {props.lastName} onChange={(e)=>handleTyping(e,props.setLastName)} type="text" name="lastName" id="lastName" value ={props.lastName} />
                 <label htmlFor="email">Email</label>
-                <input onChange={(e)=>handleTyping(e,props.setEmail)} value={props.email} type="email" name="email" id="email" value={props.email}/>
+                <input onChange={(e)=>handleTyping(e,props.setEmail)} value={props.email} type="email" name="email" id="email" value ={props.email}/>
                 <label htmlFor="password">Password</label>
                 <input onChange={(e)=>handleTyping(e,props.setPassword)} value ={props.password} type="password" name="password" id="password" value={props.password} />
                 <label htmlFor="conpassword">Confirm Password</label>
